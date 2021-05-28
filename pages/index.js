@@ -6,7 +6,7 @@ export default function Home() {
       <div>
         <h1>Vienna Vanguards Online Store</h1>
         <button>
-          <Link href="/productpage">
+          <Link href="/products">
             <a>Shop Now</a>
           </Link>
         </button>
