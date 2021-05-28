@@ -1,3 +1,3 @@
 export default function about() {
-  return <div></div>;
+  return <div>rock hard</div>;
 }
