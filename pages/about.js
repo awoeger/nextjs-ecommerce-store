@@ -1,5 +1,16 @@
+import Head from 'next/head';
 import Layout from '../components/Layout';
 
 export default function about() {
-  return <Layout>Rock</Layout>;
+  return (
+    <>
+      <Layout>
+        <Head>
+          <title>About</title>
+        </Head>
+        Rock
+      </Layout>
+      ;
+    </>
+  );
 }

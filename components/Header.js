@@ -8,7 +8,7 @@ export default function Header() {
       <Link href="/about">
         <a>About</a>
       </Link>
-      <Link href="/shop">
+      <Link href="/products">
         <a>Shop</a>
       </Link>
       <Link href="/about">
