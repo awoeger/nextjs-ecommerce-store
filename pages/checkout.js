@@ -1,3 +1,5 @@
+import Layout from '../components/Layout';
+
 export default function checkout() {
-  return <div></div>;
+  return <Layout>Test</Layout>;
 }

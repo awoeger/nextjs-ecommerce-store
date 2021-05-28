@@ -1,3 +1,5 @@
-export default function productPage() {
-  return <div></div>;
+import Layout from '../components/Layout';
+
+export default function products() {
+  return <Layout>Test</Layout>;
 }

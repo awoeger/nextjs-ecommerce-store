@@ -1,3 +1,5 @@
+import Layout from '../components/Layout';
+
 export default function about() {
-  return <div>rock hard</div>;
+  return <Layout>Rock</Layout>;
 }
