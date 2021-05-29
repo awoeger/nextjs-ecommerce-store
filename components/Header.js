@@ -1,4 +1,6 @@
 import { css } from '@emotion/react';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -60,7 +62,9 @@ export default function Header() {
           <a>Shop</a>
         </Link>
         <Link href="/about">
-          <a>Cart Icon</a>
+          <a>
+            <FontAwesomeIcon icon={faShoppingCart} />
+          </a>
         </Link>
       </div>
     </div>

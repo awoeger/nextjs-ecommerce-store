@@ -1,4 +1,11 @@
 import { css } from '@emotion/react';
+import {
+  faFacebookF,
+  faInstagram,
+  faTiktok,
+} from '@fortawesome/free-brands-svg-icons';
+// import { } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
 const footerContainer = css`
@@ -37,13 +44,20 @@ export default function Footer() {
       </div>
       <div css={footerRightContainer}>
         <Link href="https://www.facebook.com/ViennaVanguards">
-          <a>Instagram</a>
+          <a>
+            {' '}
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
         </Link>
         <Link href="https://www.instagram.com/viennavanguards/?hl=de">
-          <a>Facebook</a>
+          <a>
+            <FontAwesomeIcon icon={faFacebookF} />
+          </a>
         </Link>
         <Link href="https://www.tiktok.com/@viennavanguards?lang=de-DE">
-          <a>Tiktok</a>
+          <a>
+            <FontAwesomeIcon icon={faTiktok} />
+          </a>
         </Link>
       </div>
     </div>
