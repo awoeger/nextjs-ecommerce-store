@@ -3,14 +3,11 @@ import Layout from '../components/Layout';
 
 export default function products() {
   return (
-    <>
-      <Layout>
-        <Head>
-          <title>Products</title>
-        </Head>
-        Rock
-      </Layout>
-      ;
-    </>
+    <Layout>
+      <Head>
+        <title>Products</title>
+      </Head>
+      Rock
+    </Layout>
   );
 }

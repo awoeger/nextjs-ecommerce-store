@@ -3,14 +3,11 @@ import Layout from '../components/Layout';
 
 export default function shoppingCart() {
   return (
-    <>
-      <Layout>
-        <Head>
-          <title>Shopping Cart</title>
-        </Head>
-        Rock
-      </Layout>
-      ;
-    </>
+    <Layout>
+      <Head>
+        <title>Shopping Cart</title>
+      </Head>
+      Rock
+    </Layout>
   );
 }
