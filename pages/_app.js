@@ -1,6 +1,9 @@
 import { css, Global } from '@emotion/react';
 import Head from 'next/head';
 
+export const vanguardsBlue = '#182B4F';
+export const vanguardsOrange = '#F39200';
+
 function MyApp({ Component, pageProps }) {
   return (
     <>
