@@ -1,3 +1,4 @@
+import { css, Global } from '@emotion/react';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -7,7 +8,6 @@ export default function Home() {
       <Head>
         <title>Home</title>
       </Head>
-      {/* <div> */}
       <div>
         <h1>Vienna Vanguards Online Store</h1>
         <button>
@@ -16,7 +16,6 @@ export default function Home() {
           </Link>
         </button>
       </div>
-      {/* </div> */}
     </div>
   );
 }

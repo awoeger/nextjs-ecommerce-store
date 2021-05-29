@@ -3,10 +3,12 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Layout from '../components/Layout';
 
-const mainContainerAbout = css`
-  display: flex;
-  align-items: center;
-`;
+// const mainContainerAbout = css`
+//   display: flex;
+//   align-items: center;
+// `;
+
+// Todo: Flex the divs and create photo slideshow
 
 export default function about() {
   return (
