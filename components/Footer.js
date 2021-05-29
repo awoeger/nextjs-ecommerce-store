@@ -34,6 +34,11 @@ const footerRightContainer = css`
     margin-left: 30px;
     font-size: 1.4em;
   }
+
+  a:hover {
+    color: #f39200;
+    font-weight: bold;
+  }
 `;
 
 export default function Footer() {

@@ -26,11 +26,11 @@ const headerRightContainer = css`
     text-decoration: none;
     margin-left: 30px;
     font-size: 1.4em;
+    font-weight: bold;
   }
 
   a:hover {
     color: #f39200;
-    font-weight: bold;
   }
 `;
 
@@ -63,7 +63,7 @@ export default function Header() {
         </Link>
         <Link href="/about">
           <a>
-            <FontAwesomeIcon icon={faShoppingCart} />
+            <FontAwesomeIcon size="2" icon={faShoppingCart} />
           </a>
         </Link>
       </div>
