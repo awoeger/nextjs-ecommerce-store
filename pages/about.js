@@ -1,4 +1,4 @@
-import { css, Global } from '@emotion/react';
+import { css } from '@emotion/react';
 import Head from 'next/head';
 import Layout from '../components/Layout';
 
@@ -36,7 +36,7 @@ const aboutSubContainerRight = css`
   }
 `;
 
-// Todo: Flex the divs and create photo slideshow
+// Todo: create photo slideshow
 
 export default function About() {
   return (
