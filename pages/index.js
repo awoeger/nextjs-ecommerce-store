@@ -27,11 +27,14 @@ const homepageContainer = css`
 
   button {
     background: none;
-    color: white;
     font-size: 3em;
     border: white 1px solid;
     padding: 15px 25px;
     margin-top: 20px;
+  }
+
+  button:hover {
+    border: 1px #f39200 solid;
   }
 
   a {
