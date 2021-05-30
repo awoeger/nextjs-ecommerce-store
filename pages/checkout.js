@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Layout from '../components/Layout';
 
-export default function checkout() {
+export default function Checkout() {
   return (
     <Layout>
       <Head>

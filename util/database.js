@@ -1,4 +1,4 @@
-export const products = [
+export const productList = [
   {
     id: 1,
     name: 'Jersey blue - short sleeves',
@@ -6,7 +6,7 @@ export const products = [
     currency: '€',
     description:
       'breathable fabric, soft-touch, moisture resistance, quick dry, 100% polyester, unisex cut only',
-    // img:
+    img: '/jerseyBlueFront.PNG',
     sizes: ['S', 'M', 'L', 'XL'],
   },
   {
@@ -16,7 +16,7 @@ export const products = [
     currency: '€',
     description:
       'breathable fabric, soft-touch, moisture resistance, quick dry, 100% polyester, unisex cut only',
-    // img source
+    img: '/jerseyBlueFront.PNG',
     sizes: ['S', 'M', 'L', 'XL'],
   },
   {
@@ -26,7 +26,7 @@ export const products = [
     currency: '€',
     description:
       'Heavyweight three fly fleece cotton rich fabric, soften handle, double layer hood, unisex cut only',
-    // img source
+    img: '/jerseyBlueFront.PNG',
     sizes: ['S', 'M', 'L', 'XL'],
   },
   {
@@ -36,7 +36,7 @@ export const products = [
     currency: '€',
     description:
       'Heavyweight three fly fleece cotton rich fabric, soften handle, double layer hood, unisex cut only',
-    // img source
+    img: '/jerseyBlueFront.PNG',
     sizes: ['S', 'M', 'L', 'XL'],
   },
   {
@@ -46,7 +46,7 @@ export const products = [
     currency: '€',
     description:
       '100% polyester bonded fabric, water repellent, wind proof, thermal fabric, resistant to mechanical damage, durable, unisex cut only',
-    // img source
+    img: '/jerseyBlueFront.PNG',
     sizes: ['S', 'M', 'L', 'XL'],
   },
   {
@@ -56,7 +56,7 @@ export const products = [
     currency: '€',
     description:
       'breathable fabric, soft-touch, moisture resistance, quick dry, 100% polyester, unisex cut only',
-    // img source
+    img: '/jerseyBlueFront.PNG',
     sizes: ['S', 'M', 'L', 'XL'],
   },
   {
@@ -66,7 +66,7 @@ export const products = [
     currency: '€',
     description:
       'Heavyweight three fly fleece cotton rich fabric, soften handle, double layer hood, unisex cut only',
-    // img source
+    img: '/jerseyBlueFront.PNG',
     sizes: ['S', 'M', 'L', 'XL'],
   },
   {
@@ -76,7 +76,7 @@ export const products = [
     currency: '€',
     description:
       '100% cotton fabric, durable, lightweight, soft-touch, unisex cut only',
-    // img source
+    img: '/jerseyBlueFront.PNG',
     sizes: ['S', 'M', 'L', 'XL'],
   },
   {
@@ -85,7 +85,7 @@ export const products = [
     price: '15',
     currency: '€',
     description: '100% cotton fabric, durable',
-    // img source
+    img: '/jerseyBlueFront.PNG',
   },
   {
     id: 11,
@@ -94,7 +94,7 @@ export const products = [
     currency: '€',
     description:
       '100% chino cotton twill, single size, adjustable strap with hook and pile',
-    // img source
+    img: '/jerseyBlueFront.PNG',
   },
   {
     id: 12,
@@ -103,6 +103,6 @@ export const products = [
     currency: '€',
     description:
       '100% polyester, double-sided, breathable fabric, quick dry, single size',
-    // img source
+    img: '/jerseyBlueFront.PNG',
   },
 ];

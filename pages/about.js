@@ -38,7 +38,7 @@ const aboutSubContainerRight = css`
 
 // Todo: Flex the divs and create photo slideshow
 
-export default function about() {
+export default function About() {
   return (
     <Layout>
       <Head>

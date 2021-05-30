@@ -52,7 +52,7 @@ const blueOverlay = css`
   opacity: 81%;
 `;
 
-export default function thankyou() {
+export default function Thankyou() {
   return (
     <div css={thankyouContainer}>
       <div css={blueOverlay} />
