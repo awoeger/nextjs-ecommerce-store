@@ -1,16 +1,29 @@
 import Head from 'next/head';
-// import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 
-export default function singleProduct() {
-  // const router = useRouter();
-  // const { productId } = router.query;
+export default function SingleProduct(props) {
   return (
     <Layout>
       <Head>
         <title>One</title>
       </Head>
-      <h2>One</h2>
+      <div>
+        <img alt={props.product.name} src={props.product.img} />
+      </div>
+      <div>
+        <p>{props.product.name}</p>
+        <p>{`${props.product.price} ${props.product.currency}`}</p>
+        <p>{props.products.description}</p>
+      </div>
     </Layout>
   );
+}
+
+export async function getServerSideProps() {
+  const { productList } = await import('../../util/database');
+  return {
+    props: {
+      productList: productList,
+    },
+  };
 }
