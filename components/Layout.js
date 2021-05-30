@@ -10,8 +10,8 @@ import Header from './Header';
 config.autoAddCss = false; /* eslint-disable import/first */
 
 const mainContainer = css`
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
 `;
 
 export default function Layout(props) {
