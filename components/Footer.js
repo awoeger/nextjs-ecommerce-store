@@ -51,12 +51,12 @@ export default function Footer() {
         <Link href="https://www.facebook.com/ViennaVanguards">
           <a>
             {' '}
-            <FontAwesomeIcon icon={faInstagram} />
+            <FontAwesomeIcon icon={faFacebookF} />
           </a>
         </Link>
         <Link href="https://www.instagram.com/viennavanguards/?hl=de">
           <a>
-            <FontAwesomeIcon icon={faFacebookF} />
+            <FontAwesomeIcon icon={faInstagram} />
           </a>
         </Link>
         <Link href="https://www.tiktok.com/@viennavanguards?lang=de-DE">

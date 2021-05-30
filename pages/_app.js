@@ -25,6 +25,16 @@ function MyApp({ Component, pageProps }) {
             color: #f39200;
             font-size: 1.3em;
           }
+
+          h3 {
+            color: #182b4f;
+            font-size: 1.5em;
+          }
+
+          h4 {
+            color: #f39200;
+            font-size: 1.6em;
+          }
         `}
       />
       <Head>
