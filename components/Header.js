@@ -61,9 +61,9 @@ export default function Header() {
         <Link href="/products">
           <a>Shop</a>
         </Link>
-        <Link href="/about">
+        <Link href="/shoppingcart">
           <a>
-            <FontAwesomeIcon size="2" icon={faShoppingCart} />
+            <FontAwesomeIcon size="1x" icon={faShoppingCart} />
           </a>
         </Link>
       </div>
