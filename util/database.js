@@ -6,7 +6,8 @@ export const productList = [
     currency: '€',
     description:
       'breathable fabric, soft-touch, moisture resistance, quick dry, 100% polyester, unisex cut only',
-    img: '/jerseyBlueFront.PNG',
+    imgFront: '/jerseyBlueShortFront.jpg',
+    imgBack: '/jerseyBlueShortBack.jpg',
     sizes: ['S', 'M', 'L', 'XL'],
   },
   {
@@ -16,7 +17,7 @@ export const productList = [
     currency: '€',
     description:
       'breathable fabric, soft-touch, moisture resistance, quick dry, 100% polyester, unisex cut only',
-    img: '/jerseyBlueFront.PNG',
+    imgFront: '/jerseyBlueLongFront.jpg',
     sizes: ['S', 'M', 'L', 'XL'],
   },
   {
@@ -26,7 +27,8 @@ export const productList = [
     currency: '€',
     description:
       'Heavyweight three fly fleece cotton rich fabric, soften handle, double layer hood, unisex cut only',
-    img: '/jerseyBlueFront.PNG',
+    imgFront: '/hoodieBlueFront.jpg',
+    imgBack: '/hoodieBlueBack.jpg',
     sizes: ['S', 'M', 'L', 'XL'],
   },
   {
@@ -36,7 +38,8 @@ export const productList = [
     currency: '€',
     description:
       'Heavyweight three fly fleece cotton rich fabric, soften handle, double layer hood, unisex cut only',
-    img: '/jerseyBlueFront.PNG',
+    img: '/hoodieGreyFront.jpg',
+    imgBack: '/hoodieGreyBack.jpg',
     sizes: ['S', 'M', 'L', 'XL'],
   },
   {
@@ -46,63 +49,45 @@ export const productList = [
     currency: '€',
     description:
       '100% polyester bonded fabric, water repellent, wind proof, thermal fabric, resistant to mechanical damage, durable, unisex cut only',
-    img: '/jerseyBlueFront.PNG',
+    imgFront: '/softshellFront.jpg',
+    imgBack: 'softshellBack.jpg',
     sizes: ['S', 'M', 'L', 'XL'],
   },
   {
     id: 6,
-    name: 'Pride Jersey - short sleeves',
-    price: '20',
-    currency: '€',
-    description:
-      'breathable fabric, soft-touch, moisture resistance, quick dry, 100% polyester, unisex cut only',
-    img: '/jerseyBlueFront.PNG',
-    sizes: ['S', 'M', 'L', 'XL'],
-  },
-  {
-    id: 7,
     name: 'Zipper Hoodie grey',
     price: '25',
     currency: '€',
     description:
       'Heavyweight three fly fleece cotton rich fabric, soften handle, double layer hood, unisex cut only',
-    img: '/jerseyBlueFront.PNG',
+    imgFront: '/hoodieZipperGreyFront.jpg',
+    imgBack: '/hoodieGreyBack.jpg',
     sizes: ['S', 'M', 'L', 'XL'],
   },
   {
-    id: 8,
-    name: 'T-shirt blue',
-    price: '20',
-    currency: '€',
-    description:
-      '100% cotton fabric, durable, lightweight, soft-touch, unisex cut only',
-    img: '/jerseyBlueFront.PNG',
-    sizes: ['S', 'M', 'L', 'XL'],
-  },
-  {
-    id: 9,
+    id: 7,
     name: 'Gym bag',
     price: '15',
     currency: '€',
     description: '100% cotton fabric, durable',
-    img: '/jerseyBlueFront.PNG',
+    img: '/gymbag.PNG',
   },
   {
-    id: 11,
+    id: 8,
     name: 'Cap',
     price: '10',
     currency: '€',
     description:
       '100% chino cotton twill, single size, adjustable strap with hook and pile',
-    img: '/jerseyBlueFront.PNG',
+    imgFront: '/snapback.PNG',
   },
   {
-    id: 12,
+    id: 9,
     name: 'Headband',
     price: '6',
     currency: '€',
     description:
       '100% polyester, double-sided, breathable fabric, quick dry, single size',
-    img: '/jerseyBlueFront.PNG',
+    imgFront: '/jerseyBlueFront.PNG',
   },
 ];
