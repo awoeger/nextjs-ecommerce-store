@@ -1,3 +1,4 @@
+import '../css/main.css';
 import { css, Global } from '@emotion/react';
 import Head from 'next/head';
 
@@ -18,9 +19,6 @@ function MyApp({ Component, pageProps }) {
             margin: 0px;
             padding: 0;
             font-size: 16px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-              Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-              sans-serif;
           }
 
           h2 {
