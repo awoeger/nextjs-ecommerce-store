@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import 'react-slideshow-image/dist/styles.css';
 import { css } from '@emotion/react';
 import Head from 'next/head';
@@ -46,18 +47,6 @@ const images = [
   '/hugline.jpg',
   '/intergalaktik.jpg',
 ];
-
-const eachSlide = css`
-  > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    height: 520px;
-  }
-`;
-
-// Todo: create photo slideshow
 
 export default function About() {
   return (
