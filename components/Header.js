@@ -4,9 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// import vanguardsBlue from '../pages/_app.js';
-// import vanguardsOrange from '../pages/_app.js';
-
 const headerContainer = css`
   background: #182b4f;
   display: flex;
