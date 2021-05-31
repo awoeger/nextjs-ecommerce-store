@@ -1,5 +1,8 @@
+import 'react-slideshow-image/dist/styles.css';
 import { css } from '@emotion/react';
 import Head from 'next/head';
+import React from 'react';
+import { Slide } from 'react-slideshow-image';
 import Layout from '../components/Layout';
 
 const aboutContainer = css`
@@ -36,6 +39,24 @@ const aboutSubContainerRight = css`
   }
 `;
 
+const images = [
+  '/liebentrittTackle.jpg',
+  '/aboutGroupPictureDanubeCup.JPG',
+  '/anitabeater.jpg',
+  '/hugline.jpg',
+  '/intergalaktik.jpg',
+];
+
+const eachSlide = css`
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 520px;
+  }
+`;
+
 // Todo: create photo slideshow
 
 export default function About() {
@@ -65,10 +86,16 @@ export default function About() {
           </div>
         </div>
         <div css={aboutSubContainerRight}>
-          <img
-            src="/aboutGroupPictureDanubeCup.JPG"
-            alt="Vienna Vanguards Team 2019"
-          />
+          <Slide>
+            {images.map((each, index) => (
+              <img
+                alt="Group pictures"
+                key={index}
+                style={{ width: '100%' }}
+                src={each}
+              />
+            ))}
+          </Slide>
         </div>
       </div>
     </Layout>

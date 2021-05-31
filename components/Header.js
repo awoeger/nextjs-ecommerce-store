@@ -21,7 +21,7 @@ const headerRightContainer = css`
   a {
     color: white;
     text-decoration: none;
-    margin-left: 30px;
+    margin-left: 60px;
     font-size: 1.4em;
     font-weight: bold;
   }
