@@ -1,7 +1,8 @@
 export const productList = [
   {
     id: '1',
-    name: 'Jersey blue - short sleeves',
+    name: 'Jersey - short sleeves',
+    color: 'light blue',
     price: '20',
     currency: '€',
     description:
@@ -12,7 +13,8 @@ export const productList = [
   },
   {
     id: '2',
-    name: 'Jersey blue - long sleeves',
+    name: 'Jersey - long sleeves',
+    color: 'light blue',
     price: '22',
     currency: '€',
     description:
@@ -22,7 +24,8 @@ export const productList = [
   },
   {
     id: '3',
-    name: 'Hoodie blue',
+    name: 'Hoodie',
+    color: 'navy blue',
     price: '25',
     currency: '€',
     description:
@@ -33,7 +36,8 @@ export const productList = [
   },
   {
     id: '4',
-    name: 'Hoodie grey',
+    name: 'Hoodie',
+    color: 'light grey',
     price: '25',
     currency: '€',
     description:
@@ -44,7 +48,8 @@ export const productList = [
   },
   {
     id: '5',
-    name: 'Zipper Hoodie grey',
+    name: 'Zipper Hoodie',
+    color: 'light grey',
     price: '25',
     currency: '€',
     description:
@@ -55,7 +60,8 @@ export const productList = [
   },
   {
     id: '6',
-    name: 'Softshell Jacket blue',
+    name: 'Softshell Jacket',
+    color: 'navy blue',
     price: '30',
     currency: '€',
     description:
@@ -67,6 +73,7 @@ export const productList = [
   {
     id: '7',
     name: 'Gym bag',
+    color: 'navy blue',
     price: '15',
     currency: '€',
     description: '100% cotton fabric, durable',
@@ -75,6 +82,7 @@ export const productList = [
   {
     id: '8',
     name: 'Cap',
+    color: 'navy blue',
     price: '10',
     currency: '€',
     description:
@@ -84,6 +92,7 @@ export const productList = [
   {
     id: '9',
     name: 'Headband',
+    color: 'double sided - green white',
     price: '6',
     currency: '€',
     description:

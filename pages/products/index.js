@@ -49,7 +49,7 @@ export default function Products(props) {
           {props.productList.map((product) => {
             return (
               <div css={productSubContainer} key={product.id}>
-                <Link href={`/products/${props.productList.id}`}>
+                <Link href={`/products/${product.id}`}>
                   <a>
                     <img alt={product.name} src={product.imgFront} />
                   </a>

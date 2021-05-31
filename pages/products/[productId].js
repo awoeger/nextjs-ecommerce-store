@@ -5,15 +5,16 @@ export default function SingleProduct(props) {
   return (
     <Layout>
       <Head>
-        <title>{props.productList.name}</title>
+        <title>{props.product.name}</title>
       </Head>
       <div>
-        <img alt={props.productList.name} src={props.productList.img} />
+        <img alt={props.product.name} src={props.product.imgFront} />
       </div>
       <div>
-        <p>{props.productList.name}</p>
-        <p>{`${props.productList.price} ${props.productList.currency}`}</p>
-        <p>{props.productList.description}</p>
+        <p>{props.product.name}</p>
+        <p>{`${props.product.price} ${props.product.currency}`}</p>
+        <p>{props.product.description}</p>
+        <button>Add to shopping cart</button>
       </div>
     </Layout>
   );
@@ -24,10 +25,10 @@ export async function getServerSideProps(context) {
 
   const { productList } = await import('../../util/database');
 
-  const product = productList.find((product) => product.id === productId);
+  const product = productList.find((p) => p.id === productId);
   return {
     props: {
-      productList: productList,
+      product: product,
     },
   };
 }
