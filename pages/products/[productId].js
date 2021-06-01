@@ -7,6 +7,7 @@ import Head from 'next/head';
 import React from 'react';
 import { Slide } from 'react-slideshow-image';
 import Layout from '../../components/Layout';
+import { addUserIdToShopping } from '../../util/cookies';
 
 // Todo: Delete size input for products with only single size
 
@@ -134,13 +135,7 @@ export default function SingleProduct(props) {
               </select>
               <button
                 onClick={() => {
-                  const previousCookieValue = cookies.getJSON('shopping');
-                  console.log(previousCookieValue);
-                  console.log('id', props.product.id);
-                  cookies.set('shopping', [
-                    ...previousCookieValue,
-                    `${props.product.id}`,
-                  ]);
+                  addUserIdToShopping(props.product.id);
                 }}
               >
                 Add to <FontAwesomeIcon size="1x" icon={faShoppingCart} />

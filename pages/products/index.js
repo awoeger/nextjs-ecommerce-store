@@ -17,7 +17,7 @@ const productContainer = css`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 30px 30px;
+  gap: 30px 0;
 `;
 
 const productSubContainer = css`
@@ -25,7 +25,7 @@ const productSubContainer = css`
   flex-direction: column;
 
   img {
-    width: 70%;
+    width: 80%;
   }
 
   h3 {
