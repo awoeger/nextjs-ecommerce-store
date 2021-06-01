@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import 'react-slideshow-image/dist/styles.css';
 import { css } from '@emotion/react';
 import Head from 'next/head';

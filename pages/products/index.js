@@ -25,7 +25,7 @@ const productSubContainer = css`
   flex-direction: column;
 
   img {
-    width: 60%;
+    width: 70%;
   }
 
   h3 {

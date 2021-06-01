@@ -2,6 +2,7 @@ import 'react-slideshow-image/dist/styles.css';
 import { css } from '@emotion/react';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import cookies from 'js-cookie';
 import Head from 'next/head';
 import React from 'react';
 import { Slide } from 'react-slideshow-image';
@@ -32,8 +33,19 @@ const descriptionContainer = css`
     width: 50%;
   }
 
+  h3 {
+    font-size: 1.6em;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
   p {
     color: #182b4f;
+    font-size: 1.2em;
   }
 
   span {
@@ -42,12 +54,13 @@ const descriptionContainer = css`
 
   select {
     font-size: 1.2em;
-    color: white;
-    background: #182b4f;
-    padding: 13px 0 12px 20px;
-    border: none;
+    background: white;
+    color: #182b4f;
+    padding: 12px 0 12px 20px;
+    border: 1px solid #182b4f;
     border-radius: 2px;
     margin-right: 40px;
+    margin-top: 40px;
   }
 
   button {
@@ -119,7 +132,17 @@ export default function SingleProduct(props) {
                 <option>Large</option>
                 <option>XLarge</option>
               </select>
-              <button>
+              <button
+                onClick={() => {
+                  const previousCookieValue = cookies.getJSON('shopping');
+                  console.log(previousCookieValue);
+                  console.log('id', props.product.id);
+                  cookies.set('shopping', [
+                    ...previousCookieValue,
+                    `${props.product.id}`,
+                  ]);
+                }}
+              >
                 Add to <FontAwesomeIcon size="1x" icon={faShoppingCart} />
               </button>
             </div>

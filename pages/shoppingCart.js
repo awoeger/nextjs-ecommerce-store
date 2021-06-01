@@ -7,7 +7,6 @@ export default function ShoppingCart() {
       <Head>
         <title>Shopping Cart</title>
       </Head>
-      Rock
     </Layout>
   );
 }
