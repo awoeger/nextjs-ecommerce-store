@@ -2,12 +2,11 @@ import 'react-slideshow-image/dist/styles.css';
 import { css } from '@emotion/react';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import cookies from 'js-cookie';
 import Head from 'next/head';
 import React from 'react';
 import { Slide } from 'react-slideshow-image';
 import Layout from '../../components/Layout';
-import { addUserIdToShopping } from '../../util/cookies';
+import { addProductByProductId, parseCookieValue } from '../../util/cookies';
 
 // Todo: Delete size input for products with only single size
 
@@ -135,11 +134,13 @@ export default function SingleProduct(props) {
               </select>
               <button
                 onClick={() => {
-                  addUserIdToShopping(props.product.id);
+                  addProductByProductId(props.product.id);
                 }}
               >
                 Add to <FontAwesomeIcon size="1x" icon={faShoppingCart} />
               </button>
+              {console.log(props)}
+              {props.quantity.find((p) => p.id === props.product.id)?.quantity}
             </div>
           </div>
         </div>
@@ -157,6 +158,8 @@ export async function getServerSideProps(context) {
   return {
     props: {
       product: product,
+      // Passing a cookie value as a prop
+      quantity: parseCookieValue(context.req.cookies.quantity) || [],
     },
   };
 }
