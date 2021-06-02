@@ -3,7 +3,6 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
-import getShoppingCartCookieValue from '../util/cookies';
 
 const headerContainer = css`
   background: #182b4f;
@@ -32,11 +31,16 @@ const headerRightContainer = css`
   }
 `;
 
+const shoppingCartNumber = css`
+  font-size: 0.7em;
+  margin-left: 5px;
+`;
+
 const logo = css`
   max-width: 200px;
 `;
 
-export default function Header() {
+export default function Header(props) {
   return (
     <div css={headerContainer}>
       <div css={headerLeftContainer}>
@@ -62,6 +66,11 @@ export default function Header() {
         <Link href="/shoppingcart">
           <a>
             <FontAwesomeIcon size="1x" icon={faShoppingCart} />
+            <span css={shoppingCartNumber}>
+              {props.shoppingCart
+                .map((item) => item.quantity)
+                .reduce((total, amount) => total + amount, 0)}
+            </span>
           </a>
         </Link>
       </div>

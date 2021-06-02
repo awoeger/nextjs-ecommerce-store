@@ -17,7 +17,11 @@ const mainContainer = css`
 export default function Layout(props) {
   return (
     <>
-      <Header />
+      {/* Pass props from _app.js */}
+      <Header
+        shoppingCart={props.shoppingCart}
+        setShoppingCart={props.setShoppingCart}
+      />
       <div css={mainContainer}>{props.children}</div>
       <Footer />
     </>

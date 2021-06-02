@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import 'react-slideshow-image/dist/styles.css';
 import { css } from '@emotion/react';
 import Head from 'next/head';
@@ -47,9 +48,12 @@ const images = [
   '/intergalaktik.jpg',
 ];
 
-export default function About() {
+export default function About(props) {
   return (
-    <Layout>
+    <Layout
+      shoppingCart={props.shoppingCart}
+      setShoppingCart={props.setShoppingCart}
+    >
       <Head>
         <title>About</title>
       </Head>

@@ -39,7 +39,10 @@ const productSubContainer = css`
 
 export default function Products(props) {
   return (
-    <Layout>
+    <Layout
+      shoppingCart={props.shoppingCart}
+      setShoppingCart={props.setShoppingCart}
+    >
       <Head>
         <title>Products</title>
       </Head>

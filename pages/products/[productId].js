@@ -3,7 +3,6 @@ import { css } from '@emotion/react';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head';
-import React from 'react';
 import { Slide } from 'react-slideshow-image';
 import Layout from '../../components/Layout';
 import { addProductByProductId, parseCookieValue } from '../../util/cookies';
@@ -89,7 +88,11 @@ const eachSlide = css`
 
 export default function SingleProduct(props) {
   return (
-    <Layout>
+    // Pass props
+    <Layout
+      shoppingCart={props.shoppingCart}
+      setShoppingCart={props.setShoppingCart}
+    >
       <Head>
         <title>{props.product.name}</title>
       </Head>
@@ -134,13 +137,13 @@ export default function SingleProduct(props) {
               </select>
               <button
                 onClick={() => {
-                  addProductByProductId(props.product.id);
+                  props.setShoppingCart(
+                    addProductByProductId(props.product.id),
+                  );
                 }}
               >
                 Add to <FontAwesomeIcon size="1x" icon={faShoppingCart} />
               </button>
-              {console.log(props)}
-              {props.quantity.find((p) => p.id === props.product.id)?.quantity}
             </div>
           </div>
         </div>

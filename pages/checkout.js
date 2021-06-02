@@ -35,9 +35,12 @@ const paymentSection = css`
   }
 `;
 
-export default function Checkout() {
+export default function Checkout(props) {
   return (
-    <Layout>
+    <Layout
+      shoppingCart={props.shoppingCart}
+      setShoppingCart={props.setShoppingCart}
+    >
       <Head>
         <title>Payment</title>
       </Head>

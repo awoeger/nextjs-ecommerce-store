@@ -6,39 +6,22 @@ export function getShoppingCartCookieValue() {
 }
 
 export function addProductByProductId(productId) {
-  const previousCookieValue = [...getShoppingCartCookieValue()];
+  const newCookieValue = [...getShoppingCartCookieValue()];
 
-  const productIdInCookie = previousCookieValue.find((p) => p.id === productId);
+  const productIdInCookie = newCookieValue.find((p) => p.id === productId);
 
   if (productIdInCookie) {
     productIdInCookie.quantity = productIdInCookie.quantity + 1;
   } else {
-    previousCookieValue.push({
+    newCookieValue.push({
       id: productId,
       quantity: 0,
     });
   }
-  console.log('cookie', previousCookieValue);
-  cookies.set('quantity', previousCookieValue);
-}
 
-export function substractProductByProductId(productId) {
-  const previousCookieValue = [...getShoppingCartCookieValue()];
-  const productIdInCookie = previousCookieValue.find((p) => p.id === productId);
+  cookies.set('quantity', newCookieValue);
 
-  if (productIdInCookie) {
-    if (productIdInCookie.quantity === 0) {
-      return productIdInCookie.quantity;
-    } else {
-      productIdInCookie.quantity = productIdInCookie.quantity - 1;
-    }
-  } else {
-    previousCookieValue.push({
-      id: productId,
-      quantity: 0,
-    });
-  }
-  cookies.set('quantity', previousCookieValue);
+  return newCookieValue;
 }
 
 export function parseCookieValue(value) {
