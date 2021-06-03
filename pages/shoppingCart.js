@@ -48,7 +48,7 @@ export default function ShoppingCart(props) {
           );
         })}
       </div>
-      <button onClick={() => clearShoppingCart()}>
+      <button onClick={() => props.setShoppingCart(clearShoppingCart())}>
         Clear <FontAwesomeIcon size="1x" icon={faShoppingCart} />
       </button>
       <Link href="/checkout">
