@@ -29,11 +29,14 @@ export function substractProductByProductId(productId) {
 
   const productIdInCookie = newCookieValue.find((p) => p.id === productId);
 
+  // Todo: Remove item if quantity is 0
   if (productIdInCookie) {
-    if (productIdInCookie.quantity === 0) {
+    if (productIdInCookie.quantity > 1) {
+      productIdInCookie.quantity = productIdInCookie.quantity - 1;
+    } else if (productIdInCookie.quantity === 1) {
       return productIdInCookie;
     } else {
-      productIdInCookie.quantity = productIdInCookie.quantity - 1;
+      newCookieValue.splice(productIdInCookie, 1);
     }
   } else {
     newCookieValue.push({
@@ -45,26 +48,12 @@ export function substractProductByProductId(productId) {
   return newCookieValue;
 }
 
-// export function removeProductByProductId(productId) {
-//   const newCookieValue = [...getShoppingCartCookieValue()];
-
-//   const productIdInCookie = newCookieValue.find((p) => p.id === productId);
-
-//   if (productIdInCookie) {
-//     if (productIdInCookie.quantity === 0) {
-//       return productIdInCookie;
-//     } else {
-//       productIdInCookie.quantity = productIdInCookie.quantity - 1;
-//     }
-//   } else {
-//     newCookieValue.push({
-//       id: productId,
-//       quantity: 0,
-//     });
-//   }
-//   cookies.set('quantity', newCookieValue);
-//   return newCookieValue;
-// }
+export function clearShoppingCart() {
+  const newCookieValue = [...getShoppingCartCookieValue()];
+  newCookieValue.splice(0, newCookieValue.length);
+  cookies.set('quantity', newCookieValue);
+  return newCookieValue;
+}
 
 export function parseCookieValue(value) {
   try {

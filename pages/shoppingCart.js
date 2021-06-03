@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Layout from '../components/Layout';
 import {
   addProductByProductId,
+  clearShoppingCart,
   substractProductByProductId,
 } from '../util/cookies';
 
@@ -44,6 +45,7 @@ export default function ShoppingCart(props) {
           );
         })}
       </div>
+      <button onClick={() => clearShoppingCart()}>Clear</button>
     </Layout>
   );
 }
