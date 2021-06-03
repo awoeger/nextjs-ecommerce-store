@@ -7,6 +7,8 @@ import { Slide } from 'react-slideshow-image';
 import Layout from '../../components/Layout';
 import { addProductByProductId, parseCookieValue } from '../../util/cookies';
 
+// Todo: Cut out second picture, when there is none
+
 const container = css`
   margin: 50px;
 `;
@@ -101,7 +103,11 @@ export default function SingleProduct(props) {
       <div css={container}>
         <div css={subContainer}>
           <div css={imageContainer}>
-            <Slide autoplay={false} easing="ease">
+            <Slide
+              autoplay={false}
+              easing="ease"
+              arrows={props.product.imgBack === 'none' ? false : true}
+            >
               <div css={eachSlide}>
                 <div
                   style={{ backgroundImage: `url(${props.product.imgFront})` }}
@@ -133,7 +139,6 @@ export default function SingleProduct(props) {
               <select
                 css={props.product.sizes.length === 0 ? noSizeInput : sizeInput}
               >
-                {console.log(props.product.sizes)}
                 <option disabled>Choose size</option>
                 <option>Small</option>
                 <option>Medium</option>

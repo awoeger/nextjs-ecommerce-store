@@ -50,24 +50,24 @@ export default function Checkout(props) {
             <div>
               <h2>Billing Details</h2>
               <label htmlFor="firstName">First name, last name</label>
-              <input id="lastName" type="text" />
+              <input id="lastName" />
               <label htmlFor="email">Email adress</label>
-              <input id="email" type="text" />
+              <input id="email" />
               <label htmlFor="adress">Adress</label>
-              <input id="adress" type="text" />
+              <input id="adress" />
               <label htmlFor="city">City</label>
-              <input id="city" type="text" />
+              <input id="city" />
               <label htmlFor="postcode">Postal Code</label>
-              <input id="postcode" type="text" />
+              <input id="postcode" />
               <label htmlFor="country">Country</label>
-              <input id="country" type="text" />
+              <input id="country" />
             </div>
           </section>
           <section css={paymentSection}>
             <div>
               <h2>Credit Card Info</h2>
               <label htmlFor="creditname">Name on Card</label>
-              <input id="creditname" type="text" />
+              <input id="creditname" />
               <label htmlFor="cardnumber">Card Number</label>
               <input id="cardnumber" type="number" />
               <label htmlFor="cvvNumber">CVV Number</label>
