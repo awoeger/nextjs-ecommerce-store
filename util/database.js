@@ -101,8 +101,10 @@ export const productList = [
     price: '15',
     currency: '€',
     description: '100% cotton fabric, durable',
+    cut: 'Unisex cut only',
     imgFront: '/gymbag.PNG',
     imgBack: 'none',
+    sizes: [],
   },
   {
     id: '8',
@@ -112,8 +114,10 @@ export const productList = [
     currency: '€',
     description:
       '100% chino cotton twill, single size, adjustable strap with hook and pile',
+    cut: 'Unisex cut only',
     imgFront: '/snapback.PNG',
     imgBack: 'none',
+    sizes: [],
   },
   {
     id: '9',
@@ -123,7 +127,9 @@ export const productList = [
     currency: '€',
     description:
       '100% polyester, double-sided, breathable fabric, quick dry, single size',
+    cut: 'Unisex cut only',
     imgFront: '/headband.jpg',
     imgBack: 'none',
+    sizes: [],
   },
 ];

@@ -7,8 +7,6 @@ import { Slide } from 'react-slideshow-image';
 import Layout from '../../components/Layout';
 import { addProductByProductId, parseCookieValue } from '../../util/cookies';
 
-// Todo: Delete size input for products with only single size
-
 const container = css`
   margin: 50px;
 `;
@@ -51,17 +49,6 @@ const descriptionContainer = css`
     font-weight: bold;
   }
 
-  select {
-    font-size: 1.2em;
-    background: white;
-    color: #182b4f;
-    padding: 12px 0 12px 20px;
-    border: 1px solid #182b4f;
-    border-radius: 2px;
-    margin-right: 40px;
-    margin-top: 40px;
-  }
-
   button {
     padding: 13px 30px;
     color: white;
@@ -74,6 +61,21 @@ const descriptionContainer = css`
   button:hover {
     color: #f39200;
   }
+`;
+
+const noSizeInput = css`
+  display: none;
+`;
+
+const sizeInput = css`
+  font-size: 1.2em;
+  background: white;
+  color: #182b4f;
+  padding: 12px 0 12px 20px;
+  border: 1px solid #182b4f;
+  border-radius: 2px;
+  margin-right: 40px;
+  margin-top: 40px;
 `;
 
 const eachSlide = css`
@@ -128,7 +130,10 @@ export default function SingleProduct(props) {
                 <span>Description: </span>
                 {props.product.description}
               </p>
-              <select>
+              <select
+                css={props.product.sizes.length === 0 ? noSizeInput : sizeInput}
+              >
+                {console.log(props.product.sizes)}
                 <option disabled>Choose size</option>
                 <option>Small</option>
                 <option>Medium</option>
