@@ -1,8 +1,6 @@
 import Head from 'next/head';
-import { useState } from 'react';
 import Layout from '../components/Layout';
-
-// import { addProductByProductId, parseCookieValue } from '../util/cookies';
+import { parseCookieValue, substractProductByProductId } from '../util/cookies';
 
 export default function ShoppingCart(props) {
   return (
@@ -14,7 +12,29 @@ export default function ShoppingCart(props) {
         <title>Shopping Cart</title>
       </Head>
       <h2>Shopping cart</h2>
-      <p>Products in shopping cart</p>
+      <p>
+        Total amount of products:{' '}
+        {props.shoppingCart
+          .map((item) => item.quantity)
+          .reduce((total, amount) => total + amount, 0)}
+      </p>
+      <div>
+        {props.shoppingCart.map((item) => {
+          return (
+            <div key={item.id}>
+              <div>{`${item.id} ${item.quantity}`}</div>
+              <button
+                onClick={() => {
+                  props.setShoppingCart(substractProductByProductId(item.id));
+                }}
+              >
+                -
+              </button>
+              <button>+</button>
+            </div>
+          );
+        })}
+      </div>
     </Layout>
   );
 }

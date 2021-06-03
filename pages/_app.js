@@ -9,7 +9,6 @@ export const vanguardsOrange = '#F39200';
 
 function MyApp({ Component, pageProps }) {
   const [shoppingCart, setShoppingCart] = useState([]);
-  // declare usestate variables
 
   // Updating the state variable after the page loads,
   // so that we don't run into server-side-rendering inconcistencies
