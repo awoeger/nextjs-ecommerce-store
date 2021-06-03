@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import Layout from '../components/Layout';
-import { parseCookieValue, substractProductByProductId } from '../util/cookies';
+import {
+  addProductByProductId,
+  substractProductByProductId,
+} from '../util/cookies';
 
 export default function ShoppingCart(props) {
   return (
@@ -30,7 +33,13 @@ export default function ShoppingCart(props) {
               >
                 -
               </button>
-              <button>+</button>
+              <button
+                onClick={() => {
+                  props.setShoppingCart(addProductByProductId(item.id));
+                }}
+              >
+                +
+              </button>
             </div>
           );
         })}
