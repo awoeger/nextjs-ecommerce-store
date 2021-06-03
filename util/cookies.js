@@ -29,14 +29,11 @@ export function substractProductByProductId(productId) {
 
   const productIdInCookie = newCookieValue.find((p) => p.id === productId);
 
-  // Todo: Remove item if quantity is 0
   if (productIdInCookie) {
-    if (productIdInCookie.quantity > 1) {
-      productIdInCookie.quantity = productIdInCookie.quantity - 1;
-    } else if (productIdInCookie.quantity === 1) {
+    if (productIdInCookie.quantity === 1) {
       return productIdInCookie;
     } else {
-      newCookieValue.splice(productIdInCookie, 1);
+      productIdInCookie.quantity = productIdInCookie.quantity - 1;
     }
   } else {
     newCookieValue.push({

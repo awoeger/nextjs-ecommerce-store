@@ -1,22 +1,23 @@
-import camelcaseKeys from 'camelcase-keys';
-import dotenvSafe from 'dotenv-safe';
-import postgres from 'postgres';
+// import camelcaseKeys from 'camelcase-keys';
+// import dotenvSafe from 'dotenv-safe';
+// import postgres from 'postgres';
 
-// Read the PostgreSQL secret connection information
-// (host, database, username password) from the .env file
-dotenvSafe.config();
+// // Read the PostgreSQL secret connection information
+// // (host, database, username password) from the .env file
+// dotenvSafe.config();
 
-// connect to database
-const sql = postgres();
+// // connect to database
+// const sql = postgres();
 
-// Perform a first query
-// export async function getUsers() {
-//   const users = await sql`SELECT * FROM users`;
-//   return users.map((user) => camelcaseKeys(user));
-// }
+// // Perform a first query
+// // export async function getUsers() {
+// //   const users = await sql`SELECT * FROM users`;
+// //   return users.map((user) => camelcaseKeys(user));
+// // }
 
 export const productList = [
   {
+    id: '1',
     name: 'Jersey - short sleeves',
     color: 'Light blue',
     price: '20',

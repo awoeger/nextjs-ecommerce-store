@@ -1,4 +1,7 @@
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head';
+import Link from 'next/link';
 import Layout from '../components/Layout';
 import {
   addProductByProductId,
@@ -17,7 +20,7 @@ export default function ShoppingCart(props) {
       </Head>
       <h2>Shopping cart</h2>
       <p>
-        Total amount of products:{' '}
+        Total amount of products: {console.log(props.shoppingCart)}
         {props.shoppingCart
           .map((item) => item.quantity)
           .reduce((total, amount) => total + amount, 0)}
@@ -45,7 +48,14 @@ export default function ShoppingCart(props) {
           );
         })}
       </div>
-      <button onClick={() => clearShoppingCart()}>Clear</button>
+      <button onClick={() => clearShoppingCart()}>
+        Clear <FontAwesomeIcon size="1x" icon={faShoppingCart} />
+      </button>
+      <Link href="/checkout">
+        <a>
+          <button>Buy now</button>
+        </a>
+      </Link>
     </Layout>
   );
 }
