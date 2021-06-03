@@ -1,3 +1,20 @@
+import camelcaseKeys from 'camelcase-keys';
+import dotenvSafe from 'dotenv-safe';
+import postgres from 'postgres';
+
+//Read the PostgreSQL secret connection information
+// (host, database, username password) from the .env file
+dotenvSafe.config();
+
+// connect to database
+const sqpl = postgres();
+
+// Perform a first query
+export async function getUsers() {
+  const users = await sql`SELECT * FROM users`;
+  return users.map((user) => camelcaseKeys(user));
+}
+
 export const productList = [
   {
     id: '1',
