@@ -45,25 +45,6 @@ export function substractProductByProductId(productId) {
   return newCookieValue;
 }
 
-// // Todo: functionality for 0 quantity
-// export function substractProductByProductId2(productId) {
-//   const newCookieValue = [...getShoppingCartCookieValue()];
-
-//   const productIdInCookie = newCookieValue.find((p) => p.id === productId);
-
-//   if (productIdInCookie) {
-//     if (productIdInCookie.quantity === 1) {
-//       return productIdInCookie;
-//     } else if (productIdInCookie > 1){
-//       productIdInCookie.quantity = productIdInCookie.quantity - 1;
-//     } else {
-//       newCookieValue.splice(productIdInCookie, 1);
-//     }
-//   }
-//   cookies.set('quantity', newCookieValue);
-//   return newCookieValue;
-// }
-
 export function clearShoppingCart() {
   const newCookieValue = [...getShoppingCartCookieValue()];
   newCookieValue.splice(0, newCookieValue.length);
