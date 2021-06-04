@@ -7,8 +7,6 @@ import { Slide } from 'react-slideshow-image';
 import Layout from '../../components/Layout';
 import { addProductByProductId, parseCookieValue } from '../../util/cookies';
 
-// Todo: Cut out second picture, when there is none
-
 const container = css`
   margin: 50px;
 `;
@@ -137,7 +135,7 @@ export default function SingleProduct(props) {
                 {props.product.description}
               </p>
               <select
-                css={props.product.sizes.length === 0 ? noSizeInput : sizeInput}
+                css={props.product.sizes === 'none' ? noSizeInput : sizeInput}
               >
                 <option disabled>Choose size</option>
                 <option>Small</option>

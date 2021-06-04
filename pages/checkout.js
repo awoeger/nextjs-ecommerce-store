@@ -167,7 +167,7 @@ export default function Checkout(props) {
               <Link href="/thankyou">
                 <a>
                   <button css={button} type="submit">
-                    Place order
+                    Buy now
                   </button>
                 </a>
               </Link>

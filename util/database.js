@@ -27,7 +27,7 @@ export const productList = [
     cut: 'Unisex cut only',
     imgFront: '/jerseyBlueShortFront.jpg',
     imgBack: '/jerseyBlueShortBack.jpg',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: 'S, M, L, XL',
   },
   {
     id: '2',
@@ -40,7 +40,7 @@ export const productList = [
     cut: 'Unisex cut only',
     imgFront: '/jerseyBlueLongFront.jpg',
     imgBack: 'none',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: 'S, M, L, XL',
   },
   {
     id: '3',
@@ -53,7 +53,7 @@ export const productList = [
     cut: 'Unisex cut only',
     imgFront: '/hoodieBlueFront.jpg',
     imgBack: '/hoodieBlueBack.jpg',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: 'S, M, L, XL',
   },
   {
     id: '4',
@@ -66,7 +66,7 @@ export const productList = [
     cut: 'Unisex cut only',
     imgFront: '/hoodieGreyFront.jpg',
     imgBack: '/hoodieGreyBack.jpg',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: 'S, M, L, XL',
   },
   {
     id: '5',
@@ -79,7 +79,7 @@ export const productList = [
     cut: 'Unisex cut only',
     imgFront: '/hoodieZipperGreyFront.jpg',
     imgBack: '/hoodieGreyBack.jpg',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: 'S, M, L, XL',
   },
   {
     id: '6',
@@ -92,7 +92,7 @@ export const productList = [
     cut: 'Unisex cut only',
     imgFront: '/softshellFront.jpg',
     imgBack: '/softshellBack.jpg',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: 'S, M, L, XL',
   },
   {
     id: '7',
@@ -100,11 +100,11 @@ export const productList = [
     color: 'Navy blue',
     price: '15',
     currency: '€',
-    description: '100% cotton fabric, durable',
+    description: '100% cotton fabric, durable, water resistent',
     cut: 'Unisex cut only',
     imgFront: '/gymbag.PNG',
     imgBack: 'none',
-    sizes: [],
+    sizes: 'none',
   },
   {
     id: '8',
@@ -117,7 +117,7 @@ export const productList = [
     cut: 'Unisex cut only',
     imgFront: '/snapback.PNG',
     imgBack: 'none',
-    sizes: [],
+    sizes: 'none',
   },
   {
     id: '9',
@@ -130,6 +130,6 @@ export const productList = [
     cut: 'Unisex cut only',
     imgFront: '/headband.jpg',
     imgBack: 'none',
-    sizes: [],
+    sizes: 'none',
   },
 ];

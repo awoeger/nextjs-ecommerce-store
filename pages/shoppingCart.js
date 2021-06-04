@@ -53,7 +53,7 @@ export default function ShoppingCart(props) {
       </button>
       <Link href="/checkout">
         <a>
-          <button>Buy now</button>
+          <button>Place order</button>
         </a>
       </Link>
     </Layout>
