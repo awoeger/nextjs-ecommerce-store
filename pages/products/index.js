@@ -54,10 +54,10 @@ export default function Products(props) {
               <div css={productSubContainer} key={product.id}>
                 <Link href={`/products/${product.id}`}>
                   <a>
-                    <img alt={product.name} src={product.imgFront} />
+                    <img alt={product.productName} src={product.imgFront} />
                   </a>
                 </Link>
-                <h3>{product.name}</h3>
+                {console.log(product)};<h3>{product.productName}</h3>
                 <h4>{`${product.price} ${product.currency}`}</h4>
               </div>
             );
@@ -69,7 +69,9 @@ export default function Products(props) {
 }
 
 export async function getServerSideProps() {
-  const { productList } = await import('../../util/database');
+  const { getProducts } = await import('../../util/database');
+  const productList = await getProducts();
+
   return {
     props: {
       productList: productList,

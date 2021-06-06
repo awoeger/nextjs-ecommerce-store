@@ -96,7 +96,7 @@ export default function SingleProduct(props) {
       setShoppingCart={props.setShoppingCart}
     >
       <Head>
-        <title>{props.product.name}</title>
+        <title>{props.product.productName}</title>
       </Head>
       <div css={container}>
         <div css={subContainer}>
@@ -120,7 +120,7 @@ export default function SingleProduct(props) {
           </div>
           <div css={descriptionContainer}>
             <div>
-              <h3>{props.product.name}</h3>
+              <h3>{props.product.productName}</h3>
               <h2>{`${props.product.price} ${props.product.currency}`}</h2>
               <p>
                 <span>Color: </span>
@@ -132,7 +132,7 @@ export default function SingleProduct(props) {
               </p>
               <p>
                 <span>Description: </span>
-                {props.product.description}
+                {props.product.productDescription}
               </p>
               <select
                 css={props.product.sizes === 'none' ? noSizeInput : sizeInput}
@@ -163,9 +163,9 @@ export default function SingleProduct(props) {
 export async function getServerSideProps(context) {
   const productId = context.query.productId;
 
-  const { productList } = await import('../../util/database');
+  const { getProductById } = await import('../../util/database');
 
-  const product = productList.find((p) => p.id === productId);
+  const product = await getProductById(productId);
   return {
     props: {
       product: product,

@@ -1,11 +1,11 @@
 const productList = [
   {
     id: '1',
-    productName: 'Jersey - short sleeves',
+    product_name: 'Jersey - short sleeves',
     color: 'Light blue',
     price: '20',
     currency: '€',
-    productDescription:
+    product_description:
       'Breathable fabric, soft-touch, moisture resistance, quick dry, 100% polyester',
     cut: 'Unisex cut only',
     imgFront: '/jerseyBlueShortFront.jpg',
@@ -14,11 +14,11 @@ const productList = [
   },
   {
     id: '2',
-    productName: 'Jersey - long sleeves',
+    product_name: 'Jersey - long sleeves',
     color: 'Light blue',
     price: '22',
     currency: '€',
-    productDescription:
+    product_description:
       'Breathable fabric, soft-touch, moisture resistance, quick dry, 100% polyester',
     cut: 'Unisex cut only',
     imgFront: '/jerseyBlueLongFront.jpg',
@@ -27,11 +27,11 @@ const productList = [
   },
   {
     id: '3',
-    productName: 'Hoodie',
+    product_name: 'Hoodie',
     color: 'Navy blue',
     price: '25',
     currency: '€',
-    productDescription:
+    product_description:
       'Heavyweight three fly fleece cotton rich fabric, soften handle, double layer hood',
     cut: 'Unisex cut only',
     imgFront: '/hoodieBlueFront.jpg',
@@ -40,11 +40,11 @@ const productList = [
   },
   {
     id: '4',
-    productName: 'Hoodie',
+    product_name: 'Hoodie',
     color: 'Light grey',
     price: '25',
     currency: '€',
-    productDescription:
+    product_description:
       'Heavyweight three fly fleece cotton rich fabric, soften handle, double layer hood',
     cut: 'Unisex cut only',
     imgFront: '/hoodieGreyFront.jpg',
@@ -53,11 +53,11 @@ const productList = [
   },
   {
     id: '5',
-    productName: 'Zipper Hoodie',
+    product_name: 'Zipper Hoodie',
     color: 'Light grey',
     price: '25',
     currency: '€',
-    productDescription:
+    product_description:
       'Heavyweight three fly fleece cotton rich fabric, soften handle, double layer hood',
     cut: 'Unisex cut only',
     imgFront: '/hoodieZipperGreyFront.jpg',
@@ -66,11 +66,11 @@ const productList = [
   },
   {
     id: '6',
-    productName: 'Softshell Jacket',
+    product_name: 'Softshell Jacket',
     color: 'Navy blue',
     price: '30',
     currency: '€',
-    productDescription:
+    product_description:
       '100% polyester bonded fabric, water repellent, wind proof, thermal fabric, resistant to mechanical damage, durable',
     cut: 'Unisex cut only',
     imgFront: '/softshellFront.jpg',
@@ -79,11 +79,11 @@ const productList = [
   },
   {
     id: '7',
-    productName: 'Gym bag',
+    product_name: 'Gym bag',
     color: 'Navy blue',
     price: '15',
     currency: '€',
-    productDescription: '100% cotton fabric, durable, water resistent',
+    product_description: '100% cotton fabric, durable, water resistent',
     cut: 'Unisex cut only',
     imgFront: '/gymbag.PNG',
     imgBack: 'none',
@@ -91,11 +91,11 @@ const productList = [
   },
   {
     id: '8',
-    productName: 'Cap',
+    product_name: 'Cap',
     color: 'Navy blue',
     price: '10',
     currency: '€',
-    productDescription:
+    product_description:
       '100% chino cotton twill, single size, adjustable strap with hook and pile',
     cut: 'Unisex cut only',
     imgFront: '/snapback.PNG',
@@ -104,11 +104,11 @@ const productList = [
   },
   {
     id: '9',
-    productName: 'Headband',
+    product_name: 'Headband',
     color: 'double sided - green white',
     price: '6',
     currency: '€',
-    productDescription:
+    product_description:
       '100% polyester, double-sided, breathable fabric, quick dry, single size',
     cut: 'Unisex cut only',
     imgFront: '/headband.jpg',
@@ -121,11 +121,11 @@ exports.up = async function up(sql) {
   await sql`
 	INSERT INTO products ${sql(
     productList,
-    'productName',
+    'product_name',
     'color',
     'price',
     'currency',
-    'productDescription',
+    'product_description',
     'cut',
     'img_Front',
     'img_Back',
