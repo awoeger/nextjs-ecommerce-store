@@ -1,3 +1,5 @@
+<!-- Todo: Insert Screenshots -->
+
 # Vienna Vanguards E-Commerce Store
 
 ![Screenshot 1]()

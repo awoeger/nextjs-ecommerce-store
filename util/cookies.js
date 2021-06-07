@@ -52,6 +52,20 @@ export function clearShoppingCart() {
   return newCookieValue;
 }
 
+export function removeProductById(productId) {
+  const newCookieValue = [...getShoppingCartCookieValue()];
+  const productIdInCookie = newCookieValue.find((p) => p.id === productId);
+
+  if (productIdInCookie) {
+    newCookieValue.splice(productIdInCookie, 1);
+  } else {
+    return newCookieValue;
+  }
+
+  cookies.set('quantity', newCookieValue);
+  return newCookieValue;
+}
+
 export function parseCookieValue(value) {
   try {
     return JSON.parse(value);
