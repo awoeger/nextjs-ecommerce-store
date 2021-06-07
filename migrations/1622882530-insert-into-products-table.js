@@ -134,6 +134,7 @@ exports.up = async function up(sql) {
 	`;
 };
 
+// TODO Loop through the products like in lecture
 exports.down = async function down(sql) {
   await sql`
 		DELETE FROM

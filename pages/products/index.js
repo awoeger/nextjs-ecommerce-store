@@ -57,7 +57,7 @@ export default function Products(props) {
                     <img alt={product.productName} src={product.imgFront} />
                   </a>
                 </Link>
-                {console.log(product)};<h3>{product.productName}</h3>
+                <h3>{product.productName}</h3>
                 <h4>{`${product.price} ${product.currency}`}</h4>
               </div>
             );

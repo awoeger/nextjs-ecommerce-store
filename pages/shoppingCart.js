@@ -9,6 +9,10 @@ import {
   substractProductByProductId,
 } from '../util/cookies';
 
+// Todo: product goes under null - remove
+// Todo: import product pictes, name and price
+// Todo: Calculate total price
+
 export default function ShoppingCart(props) {
   return (
     <Layout
@@ -20,7 +24,7 @@ export default function ShoppingCart(props) {
       </Head>
       <h2>Shopping cart</h2>
       <p>
-        Total amount of products: {console.log(props.shoppingCart)}
+        Total amount of products:
         {props.shoppingCart
           .map((item) => item.quantity)
           .reduce((total, amount) => total + amount, 0)}
@@ -58,4 +62,16 @@ export default function ShoppingCart(props) {
       </Link>
     </Layout>
   );
+}
+
+export async function getServerSideProps(context) {
+  const productId = context.query.productId;
+  const { getProductById } = await import('../util/database');
+  const product = await getProductById(productId);
+
+  return {
+    props: {
+      product: product,
+    },
+  };
 }
