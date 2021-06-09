@@ -12,13 +12,17 @@ export default async function api(req, res) {
     });
   }
   const domainURL = 'http://localhost:3000';
+  // Pass in array of objects with ProductID and quantity
+  // [{productID: 1, quantity: 2}, {productID: 3, quantity: 2}]
   const { quantity, mode, priceID } = req.body;
+
   const pmTypes = ['card'];
 
   const session = await stripeServer.checkout.sessions.create({
     success_url: `${domainURL}/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${domainURL}/cancel`,
     payment_method_types: pmTypes,
+    // map over array of objects in line 16 and replace productid with priceid
     line_items: [{ price: process.env[priceID], quantity: quantity }],
     mode: mode,
   });

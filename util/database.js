@@ -32,7 +32,7 @@ export async function getProducts() {
 }
 
 export async function getProductById(id) {
-  const productsList = await sql`
+  const products = await sql`
   SELECT
   *
   FROM
@@ -40,5 +40,19 @@ export async function getProductById(id) {
   WHERE
   id = ${id}
   `;
-  return productsList.map((product) => camelcaseKeys(product))[0];
+  return products.map((product) => camelcaseKeys(product))[0];
 }
+
+export async function getPriceIdByProductId(id) {
+  const products = await sql`
+  SELECT
+  *
+  FROM
+  products
+  WHERE
+  id = ${id}
+  `;
+  return products.map((product) => product.price)[0];
+}
+
+console.log(getPriceIdByProductId(2));

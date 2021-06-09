@@ -19,6 +19,7 @@
     "camelcase-keys": "^6.2.2",
     "dotenv-cli": "^4.0.0",
     "dotenv-safe": "^8.2.0",
+    "framer-motion": "^4.1.17",
     "js-cookie": "^2.2.1",
     "ley": "^0.7.1",
     "next": "10.2.3",

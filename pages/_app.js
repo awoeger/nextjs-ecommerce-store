@@ -4,6 +4,8 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { getShoppingCartCookieValue } from '../util/cookies';
 
+// import "../scss/style.scss";
+
 export const vanguardsBlue = '#182B4F';
 export const vanguardsOrange = '#F39200';
 

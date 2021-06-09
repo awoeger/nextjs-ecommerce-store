@@ -14,6 +14,8 @@ const footerContainer = css`
   justify-content: space-between;
   align-items: center;
   padding: 10px 0px;
+  /* position: sticky;
+  bottom: 0; */
 `;
 
 const footerLeftContainer = css`
