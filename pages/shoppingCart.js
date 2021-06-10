@@ -6,9 +6,9 @@ import {
   faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState } from 'react';
 import Layout from '../components/Layout';
 import {
   addProductByProductId,
@@ -45,7 +45,7 @@ const container = css`
   display: flex;
   align-items: center;
   margin-right: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   width: 50%;
 
   > div {
@@ -101,15 +101,16 @@ const sumContainer = css`
 `;
 
 export default function ShoppingCart(props) {
-  // retrieve array of product ids that are inside shopping cart
-  const productsByIdInShoppingCart = props.shoppingCart.map((p) => p.id);
-  console.log('---productsByIdInShoppingCart---', productsByIdInShoppingCart);
-
-  // filter all products (array of objects) and return an array ob objects of only those that are inside shopping cart
-  const productsInShoppingCart = props.products.filter((p) =>
-    productsByIdInShoppingCart.includes(p.id),
+  const [finalShoppingCartArray, setFinalShoppingCartArray] = useState(
+    props.finalShoppingCartArray,
   );
-  console.log('---productsInShoppingCart---', productsInShoppingCart);
+
+  // calculate the total sum of products inside shopping cart
+  const totalSum = finalShoppingCartArray
+    .reduce((acc, product) => {
+      return acc + parseFloat(product.price) * product.quantity;
+    }, 0)
+    .toFixed(2);
 
   return (
     <Layout
@@ -122,7 +123,7 @@ export default function ShoppingCart(props) {
       <h2 css={heading}>Shopping cart</h2>
       <div css={mainContainer}>
         <div>
-          {productsInShoppingCart.map((item) => {
+          {finalShoppingCartArray.map((item) => {
             return (
               <div css={container} key={item.id}>
                 <img src={item.imgFront} alt={item.productName} />
@@ -143,14 +144,29 @@ export default function ShoppingCart(props) {
                     </p>
                     <button
                       css={
-                        props.shoppingCart.find((pro) => pro.id === item.id)
-                          ?.quantity === 1
+                        props.finalShoppingCartArray.find(
+                          (pro) => pro.id === item.id,
+                        )?.quantity === 1
                           ? noButton
                           : buttonQuantity
                       }
                       onClick={() => {
+                        console.log(props.shoppingCart);
                         props.setShoppingCart(
                           substractProductByProductId(item.id),
+                        );
+                        setFinalShoppingCartArray(
+                          finalShoppingCartArray.map((prod) => {
+                            if (prod.id === item.id) {
+                              // console.log(
+                              //   'prod inside finalShoppingCartArray',
+                              //   prod,
+                              // );
+                              return { ...prod, quantity: prod.quantity - 1 };
+                            } else {
+                              return prod;
+                            }
+                          }),
                         );
                       }}
                     >
@@ -165,7 +181,21 @@ export default function ShoppingCart(props) {
                     <button
                       css={buttonQuantity}
                       onClick={() => {
+                        console.log(props.shoppingCart);
                         props.setShoppingCart(addProductByProductId(item.id));
+                        setFinalShoppingCartArray(
+                          finalShoppingCartArray.map((prod) => {
+                            if (prod.id === item.id) {
+                              // console.log(
+                              //   'prod inside finalShoppingCartArray',
+                              //   prod,
+                              // );
+                              return { ...prod, quantity: prod.quantity + 1 };
+                            } else {
+                              return prod;
+                            }
+                          }),
+                        );
                       }}
                     >
                       <FontAwesomeIcon
@@ -179,6 +209,11 @@ export default function ShoppingCart(props) {
                     <button
                       onClick={() => {
                         props.setShoppingCart(removeProductById(item.id));
+                        setFinalShoppingCartArray(
+                          finalShoppingCartArray.filter(
+                            (prod) => prod.id !== item.id,
+                          ),
+                        );
                       }}
                     >
                       <FontAwesomeIcon
@@ -205,13 +240,7 @@ export default function ShoppingCart(props) {
             </span>
           </div>
           <div>
-            <span>Total sum:</span>{' '}
-            <span>
-              {productsInShoppingCart
-                .map((p) => Number(p.price))
-                .reduce((total, amount) => total + amount, 0)}
-              €
-            </span>
+            <span>Total sum:</span> {totalSum}
           </div>
           <div>
             <button
@@ -232,14 +261,34 @@ export default function ShoppingCart(props) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   // changed products for getProducts after PostgreSQL lecture
   const { getProducts } = await import('../util/database');
   const products = await getProducts();
 
+  const rawCookie = context.req.cookies.quantity;
+  const cookieArray = rawCookie ? JSON.parse(rawCookie) : [];
+  console.log('cookieArray', cookieArray);
+
+  const finalShoppingCartArray = cookieArray.map((p) => {
+    const draftShoppingCartObject = products.find((prod) => prod.id === p.id);
+    console.log('draftShoppingCartObject', draftShoppingCartObject);
+
+    return {
+      id: draftShoppingCartObject.id,
+      productName: draftShoppingCartObject.productName,
+      imgFront: draftShoppingCartObject.imgFront,
+      price: draftShoppingCartObject.price,
+      quantity: p.quantity,
+    };
+  });
+
+  console.log('finalShoppingCartArray', finalShoppingCartArray);
+
   return {
     props: {
       products,
+      finalShoppingCartArray,
     },
   };
 }

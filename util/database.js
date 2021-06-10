@@ -42,17 +42,3 @@ export async function getProductById(id) {
   `;
   return products.map((product) => camelcaseKeys(product))[0];
 }
-
-export async function getPriceIdByProductId(id) {
-  const products = await sql`
-  SELECT
-  *
-  FROM
-  products
-  WHERE
-  id = ${id}
-  `;
-  return products.map((product) => product.price)[0];
-}
-
-console.log(getPriceIdByProductId(2));

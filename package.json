@@ -15,19 +15,16 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "@stripe/stripe-js": "^1.15.0",
     "camelcase-keys": "^6.2.2",
     "dotenv-cli": "^4.0.0",
     "dotenv-safe": "^8.2.0",
-    "framer-motion": "^4.1.17",
     "js-cookie": "^2.2.1",
     "ley": "^0.7.1",
     "next": "10.2.3",
     "postgres": "^1.0.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-slideshow-image": "^3.4.6",
-    "stripe": "^8.154.0"
+    "react-slideshow-image": "^3.4.6"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "10.2.2",
