@@ -38,7 +38,8 @@ export async function getProductById(id) {
   FROM
   products
   WHERE
-  id = ${id}
+  id = ${Number(id)}
   `;
+  console.log(products);
   return products.map((product) => camelcaseKeys(product))[0];
 }

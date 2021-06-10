@@ -15,6 +15,8 @@ const footerContainer = css`
   align-items: center;
   padding: 10px 0px;
   width: 100%;
+  /* position: absolute;
+  bottom: 0; */
 `;
 
 const footerLeftContainer = css`

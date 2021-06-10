@@ -101,16 +101,14 @@ const sumContainer = css`
 `;
 
 export default function ShoppingCart(props) {
+
   const [finalShoppingCartArray, setFinalShoppingCartArray] = useState(
     props.finalShoppingCartArray,
   );
-
   // calculate the total sum of products inside shopping cart
-  const totalSum = finalShoppingCartArray
-    .reduce((acc, product) => {
-      return acc + parseFloat(product.price) * product.quantity;
-    }, 0)
-    .toFixed(2);
+  const totalSum = finalShoppingCartArray.reduce((acc, product) => {
+    return acc + parseFloat(product.price) * product.quantity;
+  }, 0);
 
   return (
     <Layout
@@ -130,9 +128,7 @@ export default function ShoppingCart(props) {
                 <div>
                   <div css={subContainer}>
                     <h3>{item.productName}</h3>
-                    <h4>
-                      {item.price} {item.currency}
-                    </h4>
+                    <h4>{item.price} €</h4>
                   </div>
                   <div css={subContainer}>
                     <p>
@@ -240,12 +236,14 @@ export default function ShoppingCart(props) {
             </span>
           </div>
           <div>
-            <span>Total sum:</span> {totalSum}
+            <span>Total sum:</span> {totalSum} {' €'}
           </div>
           <div>
             <button
               css={clearAllButton}
-              onClick={() => props.setShoppingCart(clearShoppingCart())}
+              onClick={() => {
+                props.setShoppingCart(clearShoppingCart());
+              }}
             >
               Clear Cart <FontAwesomeIcon size="1x" icon={faShoppingCart} />
             </button>

@@ -1,6 +1,8 @@
 import { css } from '@emotion/react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Alert } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
 import Layout from '../components/Layout';
 
 // Todo: Loop through year options in Exp Year input
@@ -111,11 +113,11 @@ export default function Checkout(props) {
         <div css={inputContainer}>
           <section css={billingSection}>
             <div>
-              <h2>Billing Details</h2>
+              <h2>Shipping Details</h2>
               <label htmlFor="firstName">First name, last name</label>
               <input id="lastName" />
               <label htmlFor="email">Email address</label>
-              <input id="email" />
+              <input type="email" id="email" />
               <label htmlFor="adress">Address</label>
               <input id="adress" />
               <label htmlFor="city">City</label>
