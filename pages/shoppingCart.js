@@ -17,14 +17,12 @@ import {
   substractProductByProductId,
 } from '../util/cookies';
 
-// Todo: Calculate total price
+// Todo: Clear Cart Button doesn't work anymore
 
 const heading = css`
   font-size: 2em;
   margin: 1.5em 0;
 `;
-
-const clearAllButton = {};
 
 const noButton = css`
   display: none;
@@ -100,11 +98,27 @@ const sumContainer = css`
   }
 `;
 
-export default function ShoppingCart(props) {
+const button = css`
+  padding: 13px 30px;
+  color: white;
+  background: #182b4f;
+  border: none;
+  font-size: 1em;
+  border-radius: 2px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 
+  :hover {
+    background: #182b4f;
+    color: #f39200;
+  }
+`;
+
+export default function ShoppingCart(props) {
   const [finalShoppingCartArray, setFinalShoppingCartArray] = useState(
     props.finalShoppingCartArray,
   );
+
   // calculate the total sum of products inside shopping cart
   const totalSum = finalShoppingCartArray.reduce((acc, product) => {
     return acc + parseFloat(product.price) * product.quantity;
@@ -139,13 +153,7 @@ export default function ShoppingCart(props) {
                       }
                     </p>
                     <button
-                      css={
-                        props.finalShoppingCartArray.find(
-                          (pro) => pro.id === item.id,
-                        )?.quantity === 1
-                          ? noButton
-                          : buttonQuantity
-                      }
+                      css={buttonQuantity}
                       onClick={() => {
                         console.log(props.shoppingCart);
                         props.setShoppingCart(
@@ -154,10 +162,6 @@ export default function ShoppingCart(props) {
                         setFinalShoppingCartArray(
                           finalShoppingCartArray.map((prod) => {
                             if (prod.id === item.id) {
-                              // console.log(
-                              //   'prod inside finalShoppingCartArray',
-                              //   prod,
-                              // );
                               return { ...prod, quantity: prod.quantity - 1 };
                             } else {
                               return prod;
@@ -239,17 +243,15 @@ export default function ShoppingCart(props) {
             <span>Total sum:</span> {totalSum} {' €'}
           </div>
           <div>
-            <button
+            {/* <button
               css={clearAllButton}
-              onClick={() => {
-                props.setShoppingCart(clearShoppingCart());
-              }}
+              onClick={() => props.setShoppingCart(clearShoppingCart())}
             >
               Clear Cart <FontAwesomeIcon size="1x" icon={faShoppingCart} />
-            </button>
+            </button> */}
             <Link href="/checkout">
               <a>
-                <button>Checkout</button>
+                <button css={button}>Proceed to checkout</button>
               </a>
             </Link>
           </div>

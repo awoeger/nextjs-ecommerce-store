@@ -10,6 +10,7 @@ const headerContainer = css`
   justify-content: space-between;
   align-items: center;
   padding: 10px 0px;
+  margin-bottom: 1.5em;
 `;
 
 const headerLeftContainer = css`

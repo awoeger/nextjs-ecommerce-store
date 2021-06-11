@@ -9,7 +9,7 @@ import { getShoppingCartCookieValue } from '../util/cookies';
 export const vanguardsBlue = '#182B4F';
 export const vanguardsOrange = '#F39200';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, props }) {
   const [shoppingCart, setShoppingCart] = useState([]);
 
   // Updating the state variable after the page loads,
@@ -78,3 +78,35 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+
+export async function getServerSideProps(context) {
+  // changed products for getProducts after PostgreSQL lecture
+  const { getProducts } = await import('../util/database');
+  const products = await getProducts();
+
+  const rawCookie = context.req.cookies.quantity;
+  const cookieArray = rawCookie ? JSON.parse(rawCookie) : [];
+  console.log('cookieArray', cookieArray);
+
+  const finalShoppingCartArray = cookieArray.map((p) => {
+    const draftShoppingCartObject = products.find((prod) => prod.id === p.id);
+    console.log('draftShoppingCartObject', draftShoppingCartObject);
+
+    return {
+      id: draftShoppingCartObject.id,
+      productName: draftShoppingCartObject.productName,
+      imgFront: draftShoppingCartObject.imgFront,
+      price: draftShoppingCartObject.price,
+      quantity: p.quantity,
+    };
+  });
+
+  console.log('finalShoppingCartArray', finalShoppingCartArray);
+
+  return {
+    props: {
+      products,
+      finalShoppingCartArray,
+    },
+  };
+}

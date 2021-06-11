@@ -61,7 +61,7 @@ export default function Thankyou() {
       </Head>
       <div>
         <p>Thank you for your order.</p>
-        <p>You've officially been pimped.</p>
+        <p>A confirmation email will be sent shortly.</p>
         <button>
           <Link href="/products">
             <a>Shop more</a>

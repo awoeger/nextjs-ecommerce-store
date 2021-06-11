@@ -25,23 +25,23 @@ export function addProductByProductId(productId) {
 }
 
 export function substractProductByProductId(productId) {
+  // newCookieValue is the decoded version of whatever is inside the cookie; currently an array
   const newCookieValue = [...getShoppingCartCookieValue()];
 
+  // id that we're passing and the id of the product
   const productIdInCookie = newCookieValue.find((p) => p.id === productId);
 
-  if (productIdInCookie) {
-    if (productIdInCookie.quantity === 1) {
-      return productIdInCookie;
-    } else {
-      productIdInCookie.quantity = productIdInCookie.quantity - 1;
-    }
+  if (productIdInCookie.quantity > 0) {
+    productIdInCookie.quantity = productIdInCookie.quantity - 1;
   } else {
-    newCookieValue.push({
-      id: productId,
-      quantity: 0,
-    });
+    alert(
+      'Do you want to remove the item from the cart? Then please click on the bin to confirm.',
+    );
   }
+
+  // this function creates the cookie
   cookies.set('quantity', newCookieValue);
+
   return newCookieValue;
 }
 
