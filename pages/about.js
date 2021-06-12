@@ -21,7 +21,7 @@ const aboutSubContainerLeft = css`
   }
 
   h2 {
-    font-size: 3em;
+    font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 10px;
   }

@@ -20,19 +20,19 @@ const mainContainer = css`
 
   h2 {
     font-size: 1.6em;
-    margin: 30px 0;
+    margin: 40px 0;
   }
 `;
 
 const checkoutContainerLeft = css`
-  width: 50%;
+  width: 60%;
   color: #182b4f;
   font-size: 1.1em;
   font-weight: bold;
 `;
 
 const checkoutContainerRight = css`
-  width: 50%;
+  width: 40%;
   margin: 30px 30px 30px 50px;
   padding-left: 50px;
   padding-top: 90px;
@@ -52,7 +52,7 @@ const checkoutContainerRight = css`
 `;
 
 const checkoutSubContainerLeft = css`
-  width: 40%;
+  width: 100%;
 
   div {
     border-bottom: 3px solid #182b4f;
@@ -61,7 +61,7 @@ const checkoutSubContainerLeft = css`
 `;
 
 const checkoutSubContainerRight = css`
-  width: 15%;
+  width: 100%;
 
   div {
     border-bottom: 3px solid #182b4f;

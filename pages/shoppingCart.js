@@ -1,10 +1,5 @@
 import { css } from '@emotion/react';
-import {
-  faMinus,
-  faPlus,
-  faShoppingCart,
-  faTrashAlt,
-} from '@fortawesome/free-solid-svg-icons';
+import { faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -12,7 +7,6 @@ import { useState } from 'react';
 import Layout from '../components/Layout';
 import {
   addProductByProductId,
-  clearShoppingCart,
   removeProductById,
   substractProductByProductId,
 } from '../util/cookies';
@@ -21,11 +15,9 @@ import {
 
 const heading = css`
   font-size: 2em;
-  margin: 1.5em 0;
-`;
-
-const noButton = css`
-  display: none;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  margin-left: 50px;
 `;
 
 const buttonQuantity = css`
@@ -37,6 +29,8 @@ const buttonQuantity = css`
 
 const mainContainer = css`
   display: flex;
+  position: relative;
+  margin-left: 50px;
 `;
 
 const container = css`
@@ -54,7 +48,7 @@ const container = css`
   }
 
   img {
-    width: 20%;
+    width: 30%;
     margin-right: 20px;
   }
 
@@ -94,7 +88,14 @@ const screenreaderSpans = css`
 `;
 
 const sumContainer = css`
-  p > span {
+  position: absolute;
+  left: 50%;
+
+  span {
+    font-size: 1.5em;
+    margin: 0 10px 50px 0;
+    color: #182b4f;
+    font-weight: bold;
   }
 `;
 
@@ -104,8 +105,9 @@ const button = css`
   background: #182b4f;
   border: none;
   font-size: 1em;
+  font-weight: bold;
   border-radius: 2px;
-  margin-top: 30px;
+  margin-top: 50px;
   margin-bottom: 30px;
 
   :hover {
@@ -132,6 +134,7 @@ export default function ShoppingCart(props) {
       <Head>
         <title>Shopping Cart</title>
       </Head>
+
       <h2 css={heading}>Shopping cart</h2>
       <div css={mainContainer}>
         <div>
@@ -232,15 +235,17 @@ export default function ShoppingCart(props) {
         </div>
         <div css={sumContainer}>
           <div>
-            <span>Total amount of products:</span>{' '}
             <span>
+              Total amount of products:{' '}
               {props.shoppingCart
                 .map((item) => item.quantity)
                 .reduce((total, amount) => total + amount, 0)}
             </span>
           </div>
           <div>
-            <span>Total sum:</span> {totalSum} {' €'}
+            <span>
+              Total sum: {totalSum} {' €'}
+            </span>
           </div>
           <div>
             {/* <button
@@ -251,7 +256,7 @@ export default function ShoppingCart(props) {
             </button> */}
             <Link href="/checkout">
               <a>
-                <button css={button}>Proceed to checkout</button>
+                <button css={button}>Checkout</button>
               </a>
             </Link>
           </div>
