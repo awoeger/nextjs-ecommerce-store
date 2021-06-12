@@ -53,7 +53,7 @@ export default function Products(props) {
             return (
               <div css={productSubContainer} key={product.id}>
                 <Link href={`/products/${product.id}`}>
-                  <a>
+                  <a data-cy="learn-more-about-product-link">
                     <img alt={product.productName} src={product.imgFront} />
                   </a>
                 </Link>

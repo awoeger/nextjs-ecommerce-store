@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head';
+import Link from 'next/link';
 import { Slide } from 'react-slideshow-image';
 import Layout from '../../components/Layout';
 import { addProductByProductId, parseCookieValue } from '../../util/cookies';
@@ -144,6 +145,7 @@ export default function SingleProduct(props) {
                 <option>XLarge</option>
               </select>
               <button
+                data-cy="single-product-page-add-to-cart-link"
                 onClick={() => {
                   props.setShoppingCart(
                     addProductByProductId(props.product.id),
@@ -152,6 +154,14 @@ export default function SingleProduct(props) {
               >
                 Add to <FontAwesomeIcon size="1x" icon={faShoppingCart} />
               </button>
+              <Link href="/shoppingcart">
+                <a>
+                  <button data-cy="single-product-page-proceed-to-shopping-cart">
+                    Proceed to{' '}
+                    <FontAwesomeIcon size="1x" icon={faShoppingCart} />
+                  </button>
+                </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -64,7 +64,7 @@ export default function Thankyou() {
         <p>A confirmation email will be sent shortly.</p>
         <button>
           <Link href="/products">
-            <a>Shop more</a>
+            <a data-cy="thank-you-page-shop-more-link"> Shop more</a>
           </Link>
         </button>
       </div>

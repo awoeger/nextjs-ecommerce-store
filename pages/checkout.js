@@ -258,6 +258,7 @@ export default function Checkout(props) {
               <Form.Group css={subContainerLeft}>
                 <Form.Label>First Name</Form.Label>
                 <Form.Control
+                  data-cy="checkout-form-firstName"
                   isInvalid={!!errors.firstName}
                   onChange={(e) => setField('firstName', e.target.value)}
                   placeholder="Karl"
@@ -269,6 +270,7 @@ export default function Checkout(props) {
               <Form.Group css={subContainer}>
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control
+                  data-cy="checkout-form-lastName"
                   isInvalid={!!errors.lastName}
                   onChange={(e) => setField('lastName', e.target.value)}
                   placeholder="Karlson"
@@ -281,6 +283,7 @@ export default function Checkout(props) {
             <Form.Group>
               <Form.Label>Email adress</Form.Label>
               <Form.Control
+                data-cy="checkout-form-email"
                 isInvalid={!!errors.email}
                 onChange={(e) => setField('email', e.target.value)}
                 type="email"
@@ -294,6 +297,7 @@ export default function Checkout(props) {
               <Form.Group css={subContainerLeft}>
                 <Form.Label>City</Form.Label>
                 <Form.Control
+                  data-cy="checkout-form-city"
                   isInvalid={!!errors.city}
                   onChange={(e) => setField('city', e.target.value)}
                   placeholder="Vienna"
@@ -305,6 +309,7 @@ export default function Checkout(props) {
               <Form.Group css={subContainer}>
                 <Form.Label>Postal Code</Form.Label>
                 <Form.Control
+                  data-cy="checkout-form-postalCode"
                   isInvalid={!!errors.postalCode}
                   onChange={(e) => setField('postalCode', e.target.value)}
                   placeholder="1020"
@@ -317,6 +322,7 @@ export default function Checkout(props) {
             <Form.Group>
               <Form.Label>Country</Form.Label>
               <Form.Control
+                data-cy="checkout-form-country"
                 isInvalid={!!errors.country}
                 onChange={(e) => setField('country', e.target.value)}
                 placeholder="Austria"
@@ -337,6 +343,7 @@ export default function Checkout(props) {
             <Form.Group>
               <Form.Label>Name on Credit Card</Form.Label>
               <Form.Control
+                data-cy="checkout-form-nameOnCreditCard"
                 isInvalid={!!errors.nameOnCreditCard}
                 onChange={(e) => setField('nameOnCreditCard', e.target.value)}
                 placeholder="Karl Karlson"
@@ -348,6 +355,7 @@ export default function Checkout(props) {
             <Form.Group>
               <Form.Label type="number">Card Number</Form.Label>
               <Form.Control
+                data-cy="checkout-form-cardNumber"
                 isInvalid={!!errors.cardNumber}
                 onChange={(e) => setField('cardNumber', e.target.value)}
                 placeholder="5555 4444 3333 2222"
@@ -360,6 +368,7 @@ export default function Checkout(props) {
               <Form.Group css={subContainerLeft}>
                 <Form.Label type="number">CVV Number</Form.Label>
                 <Form.Control
+                  data-cy="checkout-form-cvvNumber"
                   isInvalid={!!errors.cvvNumber}
                   onChange={(e) => setField('cvvNumber', e.target.value)}
                   placeholder="222"
@@ -371,6 +380,7 @@ export default function Checkout(props) {
               <Form.Group css={subContainer}>
                 <Form.Label>Expiration Date</Form.Label>
                 <Form.Control
+                  data-cy="checkout-form-expirationDate"
                   isInvalid={!!errors.expirationDate}
                   onChange={(e) => setField('expirationDate', e.target.value)}
                   type="month"
@@ -383,7 +393,7 @@ export default function Checkout(props) {
           </div>
           {/* TODO: Link is not working */}
           <Link href="/thankyou">
-            <a>
+            <a data-cy="checkout-form-submit">
               <Button css={button} onClick={handleSubmit} type="submit">
                 Place order
               </Button>

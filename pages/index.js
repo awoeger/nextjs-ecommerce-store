@@ -63,7 +63,7 @@ export default function Home() {
         <h1>Vienna Vanguards Online Store</h1>
         <button>
           <Link href="/products">
-            <a>Shop now</a>
+            <a data-cy="homepage-shop-now-link">Shop now</a>
           </Link>
         </button>
       </div>
