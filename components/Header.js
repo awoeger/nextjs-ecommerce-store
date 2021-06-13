@@ -67,7 +67,7 @@ export default function Header(props) {
         <Link href="/shoppingcart">
           <a>
             <FontAwesomeIcon size="1x" icon={faShoppingCart} />
-            <span css={shoppingCartNumber}>
+            <span data-cy="cart-counter-header" css={shoppingCartNumber}>
               {props.shoppingCart
                 .map((item) => item.quantity)
                 .reduce((total, amount) => total + amount, 0)}

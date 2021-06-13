@@ -1,6 +1,7 @@
 // todo1: default value cypress for input type=Month
 // todo2: fix link to thank you page
 // todo4: 404 page
+// todo5: plus minus buttons on single products page
 
 describe('Can navigate around pages', () => {
   it('can visit all pages and load all page content', () => {

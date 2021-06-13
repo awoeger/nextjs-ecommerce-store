@@ -166,6 +166,7 @@ export default function ShoppingCart(props) {
                           }
                         </p>
                         <button
+                          data-cy="substract-quantity-button"
                           css={buttonQuantity}
                           onClick={() => {
                             console.log(props.shoppingCart);
@@ -195,6 +196,7 @@ export default function ShoppingCart(props) {
                           <span css={screenreaderSpans}>Substract item</span>
                         </button>
                         <button
+                          data-cy="add-quantity-button"
                           css={buttonQuantity}
                           onClick={() => {
                             console.log(props.shoppingCart);
@@ -228,6 +230,7 @@ export default function ShoppingCart(props) {
                           <span css={screenreaderSpans}>Add item</span>
                         </button>
                         <button
+                          data-cy="remove-quantity-button"
                           onClick={() => {
                             props.setShoppingCart(removeProductById(item.id));
                             setFinalShoppingCartArray(
@@ -253,7 +256,7 @@ export default function ShoppingCart(props) {
             </div>
             <div css={sumContainer}>
               <div>
-                <span>
+                <span data-cy="cart-counter-shoppingcart">
                   Total amount of products:{' '}
                   {props.shoppingCart
                     .map((item) => item.quantity)
@@ -286,9 +289,6 @@ export default function ShoppingCart(props) {
           <div css={noItemsContainer}>
             <div>
               <p>There are currently no items in your shopping cart.</p>
-              <p>
-                Please turn back and put some merchandise in your shopping cart.
-              </p>
             </div>
             {/* <Image src="/noItemsInCart.JPG" width="300" height="800" /> */}
           </div>
