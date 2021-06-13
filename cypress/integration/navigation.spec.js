@@ -1,7 +1,6 @@
 // todo1: default value cypress for input type=Month
 // todo2: fix link to thank you page
 // todo3: fix if no item is in shopping cart, shopping cart will say no items in sc
-// todo4: if I put in very first item, quantity is 0, have to press quantity button twice
 
 describe('Can navigate around pages', () => {
   it('can visit all pages and load all page content', () => {

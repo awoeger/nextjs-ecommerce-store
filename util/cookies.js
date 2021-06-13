@@ -15,7 +15,7 @@ export function addProductByProductId(productId) {
   } else {
     newCookieValue.push({
       id: productId,
-      quantity: 0,
+      quantity: 1,
     });
   }
 
