@@ -45,13 +45,6 @@ export function substractProductByProductId(productId) {
   return newCookieValue;
 }
 
-export function clearShoppingCart() {
-  const newCookieValue = [...getShoppingCartCookieValue()];
-  newCookieValue.splice(0, newCookieValue.length);
-  cookies.set('quantity', newCookieValue);
-  return newCookieValue;
-}
-
 export function removeProductById(productId) {
   const newCookieValue = [...getShoppingCartCookieValue()];
   const productIdInCookie = newCookieValue.find((p) => p.id === productId);
