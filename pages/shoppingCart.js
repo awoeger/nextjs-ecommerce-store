@@ -253,6 +253,7 @@ export default function ShoppingCart(props) {
             <div css={sumContainer}>
               <div>
                 <span data-cy="cart-counter-shoppingcart">
+                  {console.log('---shoppingCart---', props.shoppingCart)}
                   Total amount of products:{' '}
                   {props.shoppingCart
                     .map((item) => item.quantity)

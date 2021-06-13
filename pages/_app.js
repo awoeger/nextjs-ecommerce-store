@@ -9,7 +9,7 @@ import { getShoppingCartCookieValue } from '../util/cookies';
 export const vanguardsBlue = '#182B4F';
 export const vanguardsOrange = '#F39200';
 
-function MyApp({ Component, pageProps, props }) {
+function MyApp({ Component, pageProps }) {
   const [shoppingCart, setShoppingCart] = useState([]);
 
   // Updating the state variable after the page loads,

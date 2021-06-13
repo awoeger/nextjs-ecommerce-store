@@ -5,7 +5,6 @@ import {
   faCcVisa,
   faUps,
 } from '@fortawesome/free-brands-svg-icons';
-// import { } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head';
 import Link from 'next/link';
