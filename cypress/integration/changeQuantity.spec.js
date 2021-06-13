@@ -7,6 +7,7 @@ describe('Ability to add, substract and remove products from cart', () => {
     cy.get('[data-cy="single-product-page-add-to-cart-link"]').click();
     cy.get('[data-cy="cart-counter-header"]').should('have.text', 2);
     cy.get('[data-cy="single-product-page-proceed-to-shopping-cart"]').click();
+    cy.get('[data-cy="products-in-cart-div"]').should('be.visible');
     cy.get('[data-cy="substract-quantity-button"]').click();
     cy.get('[data-cy="cart-counter-header"]').should('have.text', 1);
     cy.get('[data-cy="cart-counter-shoppingcart"]').should(
@@ -20,5 +21,6 @@ describe('Ability to add, substract and remove products from cart', () => {
       'Total amount of products: 2',
     );
     cy.get('[data-cy="remove-quantity-button"]').click();
+    cy.get('[data-cy="no-items-in-cart-div"]').should('be.visible');
   });
 });

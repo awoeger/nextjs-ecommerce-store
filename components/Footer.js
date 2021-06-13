@@ -26,6 +26,11 @@ const footerLeftContainer = css`
     color: white;
     font-size: 1.1em;
   }
+
+  span {
+    font-size: 0.7em;
+    margin-left: 2em;
+  }
 `;
 
 const footerRightContainer = css`
@@ -48,7 +53,14 @@ export default function Footer() {
   return (
     <div css={footerContainer}>
       <div css={footerLeftContainer}>
-        <p> © Vienna Vanguards Quidditch Club</p>
+        <p>
+          {' '}
+          © Vienna Vanguards Quidditch Club
+          <span>
+            This is a project created for educational purposes during the
+            Upleveled Bootcamp{' '}
+          </span>
+        </p>
       </div>
       <div css={footerRightContainer}>
         <Link href="https://www.facebook.com/ViennaVanguards">

@@ -11,8 +11,6 @@ import {
   substractProductByProductId,
 } from '../util/cookies';
 
-// Todo: Clear Cart Button doesn't work anymore
-
 const heading = css`
   font-size: 2em;
   margin-top: 1.5em;
@@ -150,7 +148,11 @@ export default function ShoppingCart(props) {
             <div>
               {finalShoppingCartArray.map((item) => {
                 return (
-                  <div css={container} key={item.id}>
+                  <div
+                    data-cy="products-in-cart-div"
+                    css={container}
+                    key={item.id}
+                  >
                     <img src={item.imgFront} alt={item.productName} />
                     <div>
                       <div css={subContainer}>
@@ -169,7 +171,6 @@ export default function ShoppingCart(props) {
                           data-cy="substract-quantity-button"
                           css={buttonQuantity}
                           onClick={() => {
-                            console.log(props.shoppingCart);
                             props.setShoppingCart(
                               substractProductByProductId(item.id),
                             );
@@ -199,17 +200,12 @@ export default function ShoppingCart(props) {
                           data-cy="add-quantity-button"
                           css={buttonQuantity}
                           onClick={() => {
-                            console.log(props.shoppingCart);
                             props.setShoppingCart(
                               addProductByProductId(item.id),
                             );
                             setFinalShoppingCartArray(
                               finalShoppingCartArray.map((prod) => {
                                 if (prod.id === item.id) {
-                                  // console.log(
-                                  //   'prod inside finalShoppingCartArray',
-                                  //   prod,
-                                  // );
                                   return {
                                     ...prod,
                                     quantity: prod.quantity + 1,
@@ -286,7 +282,7 @@ export default function ShoppingCart(props) {
             </div>
           </>
         ) : (
-          <div css={noItemsContainer}>
+          <div data-cy="no-items-in-cart-div" css={noItemsContainer}>
             <div>
               <p>There are currently no items in your shopping cart.</p>
             </div>
