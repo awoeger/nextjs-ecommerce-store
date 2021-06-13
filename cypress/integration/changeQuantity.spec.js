@@ -1,6 +1,6 @@
 describe('Ability to add, substract and remove products from cart', () => {
   it('Can load all content', () => {
-    cy.visit('http://localhost:3000/products');
+    cy.visit('/products');
     cy.get('[data-cy="learn-more-about-product-link"]').first().click();
     cy.get('[data-cy="single-product-page-add-to-cart-link"]').click();
     cy.get('[data-cy="cart-counter-header"]').should('have.text', 1);

@@ -5,7 +5,7 @@
 
 describe('Can navigate around pages', () => {
   it('can visit all pages and load all page content', () => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
     cy.get('[data-cy="homepage-shop-now-link"]').click();
     cy.get('[data-cy="learn-more-about-product-link"]').first().click();
     cy.get('[data-cy="single-product-page-add-to-cart-link"]').click();
