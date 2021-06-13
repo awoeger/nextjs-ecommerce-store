@@ -27,6 +27,14 @@ const buttonQuantity = css`
   padding: 5px 8px;
 `;
 
+const noItemsContainer = css`
+  display: flex;
+  color: #182b4f;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 5em;
+`;
+
 const mainContainer = css`
   display: flex;
   position: relative;
@@ -137,132 +145,154 @@ export default function ShoppingCart(props) {
 
       <h2 css={heading}>Shopping cart</h2>
       <div css={mainContainer}>
-        <div>
-          {finalShoppingCartArray.map((item) => {
-            return (
-              <div css={container} key={item.id}>
-                <img src={item.imgFront} alt={item.productName} />
-                <div>
-                  <div css={subContainer}>
-                    <h3>{item.productName}</h3>
-                    <h4>{item.price} €</h4>
+        {totalSum > 0 ? (
+          <>
+            <div>
+              {finalShoppingCartArray.map((item) => {
+                return (
+                  <div css={container} key={item.id}>
+                    <img src={item.imgFront} alt={item.productName} />
+                    <div>
+                      <div css={subContainer}>
+                        <h3>{item.productName}</h3>
+                        <h4>{item.price} €</h4>
+                      </div>
+                      <div css={subContainer}>
+                        <p>
+                          Amount:{' '}
+                          {
+                            props.shoppingCart.find((pro) => pro.id === item.id)
+                              ?.quantity
+                          }
+                        </p>
+                        <button
+                          css={buttonQuantity}
+                          onClick={() => {
+                            console.log(props.shoppingCart);
+                            props.setShoppingCart(
+                              substractProductByProductId(item.id),
+                            );
+                            setFinalShoppingCartArray(
+                              finalShoppingCartArray.map((prod) => {
+                                if (prod.id === item.id) {
+                                  return {
+                                    ...prod,
+                                    quantity: prod.quantity - 1,
+                                  };
+                                } else {
+                                  return prod;
+                                }
+                              }),
+                            );
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            size="xs"
+                            icon={faMinus}
+                            aria-hidden="true"
+                            title="Substract item"
+                          />
+                          <span css={screenreaderSpans}>Substract item</span>
+                        </button>
+                        <button
+                          css={buttonQuantity}
+                          onClick={() => {
+                            console.log(props.shoppingCart);
+                            props.setShoppingCart(
+                              addProductByProductId(item.id),
+                            );
+                            setFinalShoppingCartArray(
+                              finalShoppingCartArray.map((prod) => {
+                                if (prod.id === item.id) {
+                                  // console.log(
+                                  //   'prod inside finalShoppingCartArray',
+                                  //   prod,
+                                  // );
+                                  return {
+                                    ...prod,
+                                    quantity: prod.quantity + 1,
+                                  };
+                                } else {
+                                  return prod;
+                                }
+                              }),
+                            );
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            size="xs"
+                            icon={faPlus}
+                            aria-hidden="true"
+                            title="Add item"
+                          />
+                          <span css={screenreaderSpans}>Add item</span>
+                        </button>
+                        <button
+                          onClick={() => {
+                            props.setShoppingCart(removeProductById(item.id));
+                            setFinalShoppingCartArray(
+                              finalShoppingCartArray.filter(
+                                (prod) => prod.id !== item.id,
+                              ),
+                            );
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            size="sm"
+                            icon={faTrashAlt}
+                            aria-hidden="true"
+                            title="Delete item"
+                          />{' '}
+                          <span css={screenreaderSpans}>Delete item</span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div css={subContainer}>
-                    <p>
-                      Amount:{' '}
-                      {
-                        props.shoppingCart.find((pro) => pro.id === item.id)
-                          ?.quantity
-                      }
-                    </p>
-                    <button
-                      css={buttonQuantity}
-                      onClick={() => {
-                        console.log(props.shoppingCart);
-                        props.setShoppingCart(
-                          substractProductByProductId(item.id),
-                        );
-                        setFinalShoppingCartArray(
-                          finalShoppingCartArray.map((prod) => {
-                            if (prod.id === item.id) {
-                              return { ...prod, quantity: prod.quantity - 1 };
-                            } else {
-                              return prod;
-                            }
-                          }),
-                        );
-                      }}
-                    >
-                      <FontAwesomeIcon
-                        size="xs"
-                        icon={faMinus}
-                        aria-hidden="true"
-                        title="Substract item"
-                      />
-                      <span css={screenreaderSpans}>Substract item</span>
-                    </button>
-                    <button
-                      css={buttonQuantity}
-                      onClick={() => {
-                        console.log(props.shoppingCart);
-                        props.setShoppingCart(addProductByProductId(item.id));
-                        setFinalShoppingCartArray(
-                          finalShoppingCartArray.map((prod) => {
-                            if (prod.id === item.id) {
-                              // console.log(
-                              //   'prod inside finalShoppingCartArray',
-                              //   prod,
-                              // );
-                              return { ...prod, quantity: prod.quantity + 1 };
-                            } else {
-                              return prod;
-                            }
-                          }),
-                        );
-                      }}
-                    >
-                      <FontAwesomeIcon
-                        size="xs"
-                        icon={faPlus}
-                        aria-hidden="true"
-                        title="Add item"
-                      />
-                      <span css={screenreaderSpans}>Add item</span>
-                    </button>
-                    <button
-                      onClick={() => {
-                        props.setShoppingCart(removeProductById(item.id));
-                        setFinalShoppingCartArray(
-                          finalShoppingCartArray.filter(
-                            (prod) => prod.id !== item.id,
-                          ),
-                        );
-                      }}
-                    >
-                      <FontAwesomeIcon
-                        size="sm"
-                        icon={faTrashAlt}
-                        aria-hidden="true"
-                        title="Delete item"
-                      />{' '}
-                      <span css={screenreaderSpans}>Delete item</span>
-                    </button>
-                  </div>
-                </div>
+                );
+              })}
+            </div>
+            <div css={sumContainer}>
+              <div>
+                <span>
+                  Total amount of products:{' '}
+                  {props.shoppingCart
+                    .map((item) => item.quantity)
+                    .reduce((total, amount) => total + amount, 0)}
+                </span>
               </div>
-            );
-          })}
-        </div>
-        <div css={sumContainer}>
-          <div>
-            <span>
-              Total amount of products:{' '}
-              {props.shoppingCart
-                .map((item) => item.quantity)
-                .reduce((total, amount) => total + amount, 0)}
-            </span>
+              <div>
+                <span>
+                  Total sum: {totalSum} {' €'}
+                </span>
+              </div>
+              <div>
+                {/* <button
+                css={clearAllButton}
+                onClick={() => props.setShoppingCart(clearShoppingCart())}
+              >
+                Clear Cart <FontAwesomeIcon size="1x" icon={faShoppingCart} />
+              </button> */}
+                <Link href="/checkout">
+                  <a>
+                    <button data-cy="checkout-link" css={button}>
+                      Checkout
+                    </button>
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div css={noItemsContainer}>
+            <div>
+              <p>There are currently no items in your shopping cart.</p>
+              <p>
+                Please turn back and put some merchandise in your shopping cart.
+              </p>
+            </div>
+            {/* <Image src="/noItemsInCart.JPG" width="300" height="800" /> */}
           </div>
-          <div>
-            <span>
-              Total sum: {totalSum} {' €'}
-            </span>
-          </div>
-          <div>
-            {/* <button
-              css={clearAllButton}
-              onClick={() => props.setShoppingCart(clearShoppingCart())}
-            >
-              Clear Cart <FontAwesomeIcon size="1x" icon={faShoppingCart} />
-            </button> */}
-            <Link href="/checkout">
-              <a>
-                <button data-cy="checkout-link" css={button}>
-                  Checkout
-                </button>
-              </a>
-            </Link>
-          </div>
-        </div>
+        )}
       </div>
     </Layout>
   );

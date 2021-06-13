@@ -1,6 +1,9 @@
 import 'react-slideshow-image/dist/styles.css';
 import { css } from '@emotion/react';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowCircleLeft,
+  faShoppingCart,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -9,7 +12,7 @@ import Layout from '../../components/Layout';
 import { addProductByProductId, parseCookieValue } from '../../util/cookies';
 
 const container = css`
-  margin: 50px;
+  margin: 100px 50px 60px 50px;
 `;
 
 const subContainer = css`
@@ -18,12 +21,14 @@ const subContainer = css`
 
 const imageContainer = css`
   width: 40%;
+  position: relative;
 
   img {
-    width: 80%;
+    width: 100%;
   }
 `;
 const descriptionContainer = css`
+  position: relative;
   width: 60%;
   margin-left: 50px;
 
@@ -49,35 +54,22 @@ const descriptionContainer = css`
   span {
     font-weight: bold;
   }
-
-  button {
-    padding: 13px 30px;
-    color: white;
-    background: #182b4f;
-    border: none;
-    font-size: 1.2em;
-    border-radius: 2px;
-  }
-
-  button:hover {
-    color: #f39200;
-  }
 `;
 
-const noSizeInput = css`
-  display: none;
-`;
+// const noSizeInput = css`
+//   display: none;
+// `;
 
-const sizeInput = css`
-  font-size: 1.2em;
-  background: white;
-  color: #182b4f;
-  padding: 12px 0 12px 20px;
-  border: 1px solid #182b4f;
-  border-radius: 2px;
-  margin-right: 40px;
-  margin-top: 40px;
-`;
+// const sizeInput = css`
+//   font-size: 1.2em;
+//   background: white;
+//   color: #182b4f;
+//   padding: 12px 0 12px 20px;
+//   border: 1px solid #182b4f;
+//   border-radius: 2px;
+//   margin-right: 40px;
+//   margin-top: 40px;
+// `;
 
 const eachSlide = css`
   > div {
@@ -87,6 +79,44 @@ const eachSlide = css`
     background-size: cover;
     height: 520px;
   }
+`;
+
+const addToCardButton = css`
+  background-color: white;
+  color: #182b4f;
+  border: #182b4f 1px solid;
+  font-size: 1em;
+  padding: 0.5em 1.2em;
+  margin-top: 10px;
+`;
+
+const proceedToCardButton = css`
+  padding: 13px 30px;
+  color: white;
+  background: #182b4f;
+  border: none;
+  font-size: 1.2em;
+  border-radius: 2px;
+  width: 100%;
+  margin: 1.3em 0;
+
+  :hover {
+    color: #f39200;
+  }
+
+  position: absolute;
+  left: 75%;
+  top: 85%;
+  max-width: 200px;
+`;
+
+const backButton = css`
+  border: none;
+  color: #182b4f;
+  background-color: white;
+  position: absolute;
+  bottom: 106%;
+  font-size: 1em;
 `;
 
 export default function SingleProduct(props) {
@@ -99,9 +129,18 @@ export default function SingleProduct(props) {
       <Head>
         <title>{props.product.productName}</title>
       </Head>
+
       <div css={container}>
         <div css={subContainer}>
           <div css={imageContainer}>
+            <Link href="/products">
+              <a>
+                <button css={backButton}>
+                  <FontAwesomeIcon size="2x" icon={faArrowCircleLeft} /> {'  '}{' '}
+                  <span>Back to shop</span>
+                </button>
+              </a>
+            </Link>
             <Slide
               autoplay={false}
               easing="ease"
@@ -135,7 +174,7 @@ export default function SingleProduct(props) {
                 <span>Description: </span>
                 {props.product.productDescription}
               </p>
-              <select
+              {/* <select
                 css={props.product.sizes === 'none' ? noSizeInput : sizeInput}
               >
                 <option disabled>Choose size</option>
@@ -143,20 +182,26 @@ export default function SingleProduct(props) {
                 <option>Medium</option>
                 <option>Large</option>
                 <option>XLarge</option>
-              </select>
-              <button
-                data-cy="single-product-page-add-to-cart-link"
-                onClick={() => {
-                  props.setShoppingCart(
-                    addProductByProductId(props.product.id),
-                  );
-                }}
-              >
-                Add to <FontAwesomeIcon size="1x" icon={faShoppingCart} />
-              </button>
+              </select> */}
+              <div>
+                <button
+                  css={addToCardButton}
+                  data-cy="single-product-page-add-to-cart-link"
+                  onClick={() => {
+                    props.setShoppingCart(
+                      addProductByProductId(props.product.id),
+                    );
+                  }}
+                >
+                  Add to <FontAwesomeIcon size="1x" icon={faShoppingCart} />
+                </button>
+              </div>
               <Link href="/shoppingcart">
                 <a>
-                  <button data-cy="single-product-page-proceed-to-shopping-cart">
+                  <button
+                    css={proceedToCardButton}
+                    data-cy="single-product-page-proceed-to-shopping-cart"
+                  >
                     Proceed to{' '}
                     <FontAwesomeIcon size="1x" icon={faShoppingCart} />
                   </button>
