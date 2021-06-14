@@ -12,6 +12,8 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Layout from '../components/Layout';
+import { getTotalAmount } from '../util/totalAmount';
+import { getTotalSum } from '../util/totalSum';
 
 const mainContainer = css`
   display: flex;
@@ -117,14 +119,10 @@ const button = css`
 
 export default function Checkout(props) {
   // calculate the total sum of products inside shopping cart
-  const totalSum = props.finalShoppingCartArray.reduce((acc, product) => {
-    return acc + parseFloat(product.price) * product.quantity;
-  }, 0);
+  const totalSum = getTotalSum(props.finalShoppingCartArray);
 
   // calculate total amount of products in shopping cart
-  const totalAmount = props.finalShoppingCartArray
-    .map((item) => item.quantity)
-    .reduce((total, amount) => total + amount);
+  const totalAmount = getTotalAmount(props.shoppingCart);
 
   // calculate shipping fee
   const shippingFee = totalAmount < 6 ? 5 : 10;

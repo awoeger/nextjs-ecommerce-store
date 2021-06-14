@@ -1,5 +1,8 @@
 // import { totalSum } from '../../pages/shoppingcart';
 
+import { getTotalAmount } from '../totalAmount';
+import { getTotalSum } from '../totalSum';
+
 // Test 1: Calculate total sum for shopping cart
 
 test('totalSum returns correct value', () => {
@@ -21,9 +24,7 @@ test('totalSum returns correct value', () => {
     },
   ];
 
-  const result = testArray.reduce((acc, product) => {
-    return acc + parseFloat(product.price) * product.quantity;
-  }, 0);
+  const result = getTotalSum(testArray);
 
   expect(result).toBe(139);
 });
@@ -45,9 +46,7 @@ test('totalSum returns correct value', () => {
     },
   ];
 
-  const result = testArray
-    .map((item) => item.quantity)
-    .reduce((total, amount) => total + amount, 0);
+  const result = getTotalAmount(testArray);
 
   expect(result).toBe(6);
 });

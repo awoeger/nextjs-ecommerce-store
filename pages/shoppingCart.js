@@ -10,6 +10,8 @@ import {
   removeProductById,
   substractProductByProductId,
 } from '../util/cookies';
+import { getTotalAmount } from '../util/totalAmount';
+import { getTotalSum } from '../util/totalSum';
 
 const heading = css`
   font-size: 2em;
@@ -128,9 +130,7 @@ export default function ShoppingCart(props) {
   );
 
   // calculate the total sum of products inside shopping cart
-  const totalSum = finalShoppingCartArray.reduce((acc, product) => {
-    return acc + parseFloat(product.price) * product.quantity;
-  }, 0);
+  const totalSum = getTotalSum(finalShoppingCartArray);
 
   return (
     <Layout
@@ -254,10 +254,7 @@ export default function ShoppingCart(props) {
               <div>
                 <span data-cy="cart-counter-shoppingcart">
                   {console.log('---shoppingCart---', props.shoppingCart)}
-                  Total amount of products:{' '}
-                  {props.shoppingCart
-                    .map((item) => item.quantity)
-                    .reduce((total, amount) => total + amount, 0)}
+                  Total amount of products: {getTotalAmount(props.shoppingCart)}
                 </span>
               </div>
               <div>
