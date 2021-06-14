@@ -3,7 +3,7 @@ import { faMinus, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import {
   addProductByProductId,
@@ -122,6 +122,32 @@ export default function ShoppingCart(props) {
     props.finalShoppingCartArray,
   );
 
+  useEffect(() => {
+    // [
+    // {id: 1, quantity: 2, price: 590, src:"/", productName: ""},
+    // {id: 2, quantity: 1, price: 590, src:"/", productName: ""}
+    // ]
+    const newFinalShoppingCartArray = props.finalShoppingCartArray
+      // filter out all objects with a quantity below 1
+      .filter((pro) => {
+        const isInSubtractedValue = props.shoppingCart.find((item) => {
+          return pro.id === item.id;
+        });
+        return isInSubtractedValue;
+      })
+      // update the quantity of objects inside newFinalShoppingCartArray with the quantity inside subtractedValue
+      .map((pro) => {
+        const q = props.shoppingCart.find((item) => {
+          return item.id === pro.id;
+        }).quantity;
+
+        pro.quantity = q;
+        return pro;
+      });
+    setFinalShoppingCartArray(newFinalShoppingCartArray);
+    // if either of these things changes, then it will update the finalShoppingCart
+  }, [props.finalShoppingCartArray, props.shoppingCart]);
+
   // calculate the total sum of products inside shopping cart
   const totalSum = getTotalSum(finalShoppingCartArray);
 
@@ -163,21 +189,11 @@ export default function ShoppingCart(props) {
                         <button
                           data-cy="substract-quantity-button"
                           onClick={() => {
-                            props.setShoppingCart(
-                              substractProductByProductId(item.id),
+                            // [{id: 1, quantity: 2}]
+                            const subtractedValue = substractProductByProductId(
+                              item.id,
                             );
-                            setFinalShoppingCartArray(
-                              finalShoppingCartArray.map((prod) => {
-                                if (prod.id === item.id) {
-                                  return {
-                                    ...prod,
-                                    quantity: prod.quantity - 1,
-                                  };
-                                } else {
-                                  return prod;
-                                }
-                              }),
-                            );
+                            props.setShoppingCart(subtractedValue);
                           }}
                         >
                           <FontAwesomeIcon
@@ -191,20 +207,13 @@ export default function ShoppingCart(props) {
                         <button
                           data-cy="add-quantity-button"
                           onClick={() => {
+                            console.log(
+                              'props.shoppingCart',
+                              props.shoppingCart,
+                            );
+                            // this updates the cookie state
                             props.setShoppingCart(
                               addProductByProductId(item.id),
-                            );
-                            setFinalShoppingCartArray(
-                              finalShoppingCartArray.map((prod) => {
-                                if (prod.id === item.id) {
-                                  return {
-                                    ...prod,
-                                    quantity: prod.quantity + 1,
-                                  };
-                                } else {
-                                  return prod;
-                                }
-                              }),
                             );
                           }}
                         >

@@ -34,6 +34,15 @@ export function substractProductByProductId(productId) {
   if (productIdInCookie.quantity > 1) {
     productIdInCookie.quantity = productIdInCookie.quantity - 1;
   } else {
+    // get index of product with the id that's passed as a parameter
+    const removeIndex = newCookieValue
+      .map(function (item) {
+        return item.id;
+      })
+      .indexOf(productId);
+
+    // remove object
+    newCookieValue.splice(removeIndex, 1);
   }
 
   // this function creates the cookie

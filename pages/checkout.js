@@ -8,6 +8,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -128,12 +129,12 @@ export default function Checkout(props) {
   const shippingFee = totalAmount < 6 ? 5 : 10;
 
   // The form object will hold a key-value pair for each of our form fields, and the errors object will hold a key-value pair for each error that we come across on form submission.
+  const router = useRouter();
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
-  const [formIsValidated, setFormIsValidated] = useState(false);
 
   // This will update our state to keep all the current form values, then add the newest form value to the right key location. Then add newest form value to the right key location. -> Add onChange function on every input field
-  function setField(field, value) {
+  const setField = (field, value) => {
     setForm({
       ...form,
       [field]: value,
@@ -145,7 +146,7 @@ export default function Checkout(props) {
         [field]: null,
       });
     }
-  }
+  };
 
   // Using these cases, we're going to create a function that checks for them, then constructs an errors object with error messages:
   const findFormErrors = () => {
@@ -205,18 +206,6 @@ export default function Checkout(props) {
       newErrors.creditcardcvv = 'Please enter a valid CVV!';
     }
 
-    // if (!cardNumber || typeof cardNumber !== 'number') {
-    //   newErrors.cardNumber = 'Please enter numbers!';
-    // } else if (cardNumber.length < 16 || cardNumber.length > 20) {
-    //   newErrors.cardNumber = 'Invalid credit card number';
-    // }
-
-    // if (!cvvNumber || typeof cvvNumber !== 'number') {
-    //   newErrors.cvvNumber = 'Please enter numbers!';
-    // } else if (cvvNumber.length < 3 || cvvNumber.length > 3) {
-    //   newErrors.cvvNumber = 'Invalid CVV Number';
-    // }
-
     if (!expirationDate) {
       newErrors.expirationDate = 'Please select the expiration date';
     }
@@ -233,16 +222,15 @@ export default function Checkout(props) {
     e.preventDefault();
     // get our new errors
     const newErrors = findFormErrors();
+    console.log(newErrors);
     // Conditional logic:
     if (Object.keys(newErrors).length > 0) {
       // We got errors!
       setErrors(newErrors);
     } else {
       // No errors! Put any logic here for the form submission!
-      alert(
-        'You are a genius and filled out everything correctly. Please click "Place your order"',
-      );
-      setFormIsValidated(true);
+      // alert('Your payment went through!');
+      router.push('/thankyou/');
     }
   };
 
@@ -364,7 +352,7 @@ export default function Checkout(props) {
                 data-cy="checkout-form-cardNumber"
                 isInvalid={!!errors.cardNumber}
                 onChange={(e) => setField('cardNumber', e.target.value)}
-                placeholder="5555 4444 3333 2222"
+                placeholder="5555444433332222"
               />
               <Form.Control.Feedback type="invalid">
                 {errors.cardNumber}
@@ -398,18 +386,14 @@ export default function Checkout(props) {
             </div>
           </div>
           {/* TODO: Link is not working */}
-          <Link href="/thankyou">
-            <a data-cy="checkout-form-submit">
-              <Button
-                data-cy="checkout-form-submit"
-                css={button}
-                onClick={handleSubmit}
-                type="submit"
-              >
-                Submit
-              </Button>
-            </a>
-          </Link>
+          <Button
+            data-cy="checkout-form-submit"
+            css={button}
+            onClick={handleSubmit}
+            type="submit"
+          >
+            Submit
+          </Button>
         </Form>
         <div css={checkoutContainerRight}>
           <div>
