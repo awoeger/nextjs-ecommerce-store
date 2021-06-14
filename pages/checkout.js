@@ -402,8 +402,13 @@ export default function Checkout(props) {
           {/* TODO: Link is not working */}
           <Link href="/thankyou">
             <a data-cy="checkout-form-submit">
-              <Button css={button} onClick={handleSubmit} type="submit">
-                Place order
+              <Button
+                data-cy="checkout-form-submit"
+                css={button}
+                onClick={handleSubmit}
+                type="submit"
+              >
+                Submit
               </Button>
             </a>
           </Link>
