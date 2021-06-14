@@ -287,7 +287,6 @@ export default function ShoppingCart(props) {
             <div>
               <p>There are currently no items in your shopping cart.</p>
             </div>
-            {/* <Image src="/noItemsInCart.JPG" width="300" height="800" /> */}
           </div>
         )}
       </div>

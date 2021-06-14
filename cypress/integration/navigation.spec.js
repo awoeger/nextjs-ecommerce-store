@@ -1,6 +1,4 @@
-// todo1: default value cypress for input type=Month
 // todo2: fix link to thank you page
-// todo4: 404 page
 // todo5: plus minus buttons on single products page
 
 describe('Can navigate around pages', () => {
@@ -38,8 +36,9 @@ describe('Can navigate around pages', () => {
     cy.get('[data-cy="checkout-form-cvvNumber"]')
       .click({ force: true })
       .type('222');
-    cy.get('[data-cy="checkout-form-expirationDate"]').click({ force: true });
-    // .type('09 2022');
+    cy.get('[data-cy="checkout-form-expirationDate"]')
+      .click({ force: true })
+      .type('2034-11');
     cy.get('[data-cy="checkout-form-submit"]').click();
     cy.get('[data-cy="thank-you-page-shop-more-link"]').click();
   });

@@ -198,19 +198,28 @@ export default function Checkout(props) {
       newErrors.nameOnCreditCard = 'Name on Credit Card is too long';
     }
 
-    if (!cardNumber || typeof cardNumber !== 'number') {
-      newErrors.cardNumber = 'Please enter numbers!';
-    } else if (cardNumber.length < 16 || cardNumber.length > 20) {
-      newErrors.cardNumber = 'Invalid credit card number';
+    // credit card number errors
+    if (!cardNumber || cardNumber.length !== 16) {
+      newErrors.creditcardnumber = 'Please enter a valid credit card number!';
     }
 
-    if (!cvvNumber || typeof cvvNumber !== 'number') {
-      newErrors.cvvNumber = 'Please enter numbers!';
-    } else if (cvvNumber.length < 3 || cvvNumber.length > 3) {
-      newErrors.cvvNumber = 'Invalid CVV Number';
+    if (!cvvNumber || cvvNumber.length !== 3) {
+      newErrors.creditcardcvv = 'Please enter a valid CVV!';
     }
 
-    if (!expirationDate || expirationDate === '') {
+    // if (!cardNumber || typeof cardNumber !== 'number') {
+    //   newErrors.cardNumber = 'Please enter numbers!';
+    // } else if (cardNumber.length < 16 || cardNumber.length > 20) {
+    //   newErrors.cardNumber = 'Invalid credit card number';
+    // }
+
+    // if (!cvvNumber || typeof cvvNumber !== 'number') {
+    //   newErrors.cvvNumber = 'Please enter numbers!';
+    // } else if (cvvNumber.length < 3 || cvvNumber.length > 3) {
+    //   newErrors.cvvNumber = 'Invalid CVV Number';
+    // }
+
+    if (!expirationDate) {
       newErrors.expirationDate = 'Please select the expiration date';
     }
 
