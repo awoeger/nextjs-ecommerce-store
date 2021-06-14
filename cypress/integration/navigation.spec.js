@@ -39,7 +39,7 @@ describe('Can navigate around pages', () => {
     cy.get('[data-cy="checkout-form-expirationDate"]')
       .click({ force: true })
       .type('2034-11');
-  //   cy.get('[data-cy="checkout-form-submit"]').click();
-  //   cy.get('[data-cy="thank-you-page-shop-more-link"]').click();
-  // });
+    cy.get('[data-cy="checkout-form-submit"]').click();
+    cy.get('[data-cy="thank-you-page-shop-more-link"]').click();
+  });
 });

@@ -31,12 +31,9 @@ export function substractProductByProductId(productId) {
   // id that we're passing and the id of the product
   const productIdInCookie = newCookieValue.find((p) => p.id === productId);
 
-  if (productIdInCookie.quantity > 0) {
+  if (productIdInCookie.quantity > 1) {
     productIdInCookie.quantity = productIdInCookie.quantity - 1;
   } else {
-    alert(
-      'Do you want to remove the item from the cart? Then please click on the bin to confirm.',
-    );
   }
 
   // this function creates the cookie

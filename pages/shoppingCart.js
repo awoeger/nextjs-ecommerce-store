@@ -20,13 +20,6 @@ const heading = css`
   margin-left: 50px;
 `;
 
-const buttonQuantity = css`
-  background-color: #000000;
-  color: #182b4f;
-  border: none;
-  padding: 5px 8px;
-`;
-
 const noItemsContainer = css`
   display: flex;
   color: #182b4f;
@@ -169,7 +162,6 @@ export default function ShoppingCart(props) {
                         </p>
                         <button
                           data-cy="substract-quantity-button"
-                          css={buttonQuantity}
                           onClick={() => {
                             props.setShoppingCart(
                               substractProductByProductId(item.id),
@@ -198,7 +190,6 @@ export default function ShoppingCart(props) {
                         </button>
                         <button
                           data-cy="add-quantity-button"
-                          css={buttonQuantity}
                           onClick={() => {
                             props.setShoppingCart(
                               addProductByProductId(item.id),
@@ -263,12 +254,6 @@ export default function ShoppingCart(props) {
                 </span>
               </div>
               <div>
-                {/* <button
-                css={clearAllButton}
-                onClick={() => props.setShoppingCart(clearShoppingCart())}
-              >
-                Clear Cart <FontAwesomeIcon size="1x" icon={faShoppingCart} />
-              </button> */}
                 <Link href="/checkout">
                   <a>
                     <button data-cy="checkout-link" css={button}>

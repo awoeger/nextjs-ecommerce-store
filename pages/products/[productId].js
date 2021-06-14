@@ -2,6 +2,8 @@ import 'react-slideshow-image/dist/styles.css';
 import { css } from '@emotion/react';
 import {
   faArrowCircleLeft,
+  faMinus,
+  faPlus,
   faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,7 +11,11 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Slide } from 'react-slideshow-image';
 import Layout from '../../components/Layout';
-import { addProductByProductId, parseCookieValue } from '../../util/cookies';
+import {
+  addProductByProductId,
+  parseCookieValue,
+  substractProductByProductId,
+} from '../../util/cookies';
 
 const container = css`
   margin: 100px 50px 60px 50px;
@@ -55,21 +61,6 @@ const descriptionContainer = css`
     font-weight: bold;
   }
 `;
-
-// const noSizeInput = css`
-//   display: none;
-// `;
-
-// const sizeInput = css`
-//   font-size: 1.2em;
-//   background: white;
-//   color: #182b4f;
-//   padding: 12px 0 12px 20px;
-//   border: 1px solid #182b4f;
-//   border-radius: 2px;
-//   margin-right: 40px;
-//   margin-top: 40px;
-// `;
 
 const eachSlide = css`
   > div {
@@ -117,6 +108,18 @@ const backButton = css`
   position: absolute;
   bottom: 106%;
   font-size: 1em;
+`;
+
+const buttonQuantity = css`
+  background-color: white;
+  color: #182b4f;
+  border: #182b4f 1px solid;
+  padding: 5px 8px;
+  margin: 10px 10px 0 0;
+`;
+
+const screenreaderSpans = css`
+  display: none;
 `;
 
 export default function SingleProduct(props) {
@@ -174,15 +177,6 @@ export default function SingleProduct(props) {
                 <span>Description: </span>
                 {props.product.productDescription}
               </p>
-              {/* <select
-                css={props.product.sizes === 'none' ? noSizeInput : sizeInput}
-              >
-                <option disabled>Choose size</option>
-                <option>Small</option>
-                <option>Medium</option>
-                <option>Large</option>
-                <option>XLarge</option>
-              </select> */}
               <div>
                 <button
                   css={addToCardButton}
@@ -195,6 +189,42 @@ export default function SingleProduct(props) {
                 >
                   Add to <FontAwesomeIcon size="1x" icon={faShoppingCart} />
                 </button>
+                <div>
+                  <button
+                    data-cy="substract-quantity-button"
+                    css={buttonQuantity}
+                    onClick={() => {
+                      props.setShoppingCart(
+                        substractProductByProductId(props.product.id),
+                      );
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      size="xs"
+                      icon={faMinus}
+                      aria-hidden="true"
+                      title="Substract item"
+                    />
+                    <span css={screenreaderSpans}>Substract item</span>
+                  </button>
+                  <button
+                    data-cy="add-quantity-button"
+                    css={buttonQuantity}
+                    onClick={() => {
+                      props.setShoppingCart(
+                        addProductByProductId(props.product.id),
+                      );
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      size="xs"
+                      icon={faPlus}
+                      aria-hidden="true"
+                      title="Add item"
+                    />
+                    <span css={screenreaderSpans}>Add item</span>
+                  </button>
+                </div>
               </div>
               <Link href="/shoppingcart">
                 <a>
