@@ -37,7 +37,30 @@ const productSubContainer = css`
   }
 `;
 
-export default function Products(props) {
+type Props = {
+  productList: {
+    color: string;
+    currency: string;
+    cut: string;
+    id: number;
+    imgBack: string;
+    imgFront: string;
+    price: string;
+    productDescription: string;
+    productName: string;
+    sizes: string;
+  }[];
+  shoppingCart: {
+    id: number;
+    quantity: number;
+  };
+  setShoppingCart: {
+    id: number;
+    quantity: number;
+  };
+};
+
+export default function Products(props: Props) {
   return (
     <Layout
       shoppingCart={props.shoppingCart}
@@ -49,6 +72,7 @@ export default function Products(props) {
       <h2 css={heading}>Get your merchandise now and become a real Fanguard</h2>
       <div css={container}>
         <div css={productContainer}>
+          {console.log('---productList', props.productList)}
           {props.productList.map((product) => {
             return (
               <div css={productSubContainer} key={product.id}>
