@@ -49,7 +49,18 @@ const images = [
   '/intergalaktik.jpg',
 ];
 
-export default function About(props) {
+type Props = {
+  shoppingCart: {
+    id: number;
+    quantity: number;
+  };
+  setShoppingCart: {
+    id: number;
+    quantity: number;
+  };
+};
+
+export default function About(props: Props) {
   return (
     <Layout
       shoppingCart={props.shoppingCart}
