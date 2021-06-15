@@ -18,7 +18,7 @@ In this repository an e-commerce store with following features and functionaliti
 
 - a product page, where all products are listed
 - a single product page, where you can find more details about the products
-- a shopping cart page and function to change quantity of the products on it
+- a shopping cart page and the possibility to change quantity of the products on it
 - a checkout page, which asks for shipping and payment information
 - a thank you page after checkout has been completed
 - the header shows the total amount of products next to the shopping cart item.
@@ -30,6 +30,7 @@ In this repository an e-commerce store with following features and functionaliti
 - Postgres
 - PSQL
 - Emotion
+- Bootstrap
 
 ## SetUp Guide
 
@@ -48,17 +49,10 @@ To work on this project by yourself, please follow the upcoming steps:
 ## Deploy your own website to Heroku
 
 - Sign up for Heroku: signup.heroku.com
-
 - Create a new App
-
 - Choose a name and select the "Europe" Region
-
 - Click on the button in the middle called "Connect to GitHub"
-
 - Search for your repository in the search box at the bottom of the page and click on the "Connect" button Click on the button for "Enable Automatic Deploys"
-
 - Go back to the Overview tab and click on "Configure Add-On"
-
 - Search for "Postgres" and select "Heroku Postgres" from the results
-
-- trigger a deploy pushing to your github repo and enjoy.
+- Trigger a deploy pushing to your github repo and enjoy.

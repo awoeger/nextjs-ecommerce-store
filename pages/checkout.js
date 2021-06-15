@@ -385,7 +385,6 @@ export default function Checkout(props) {
               </Form.Group>
             </div>
           </div>
-          {/* TODO: Link is not working */}
           <Button
             data-cy="checkout-form-submit"
             css={button}
