@@ -7,8 +7,10 @@ import {
   faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Dispatch, SetStateAction } from 'react';
 import { Slide } from 'react-slideshow-image';
 import Layout from '../../components/Layout';
 import {
@@ -122,7 +124,34 @@ const screenreaderSpans = css`
   display: none;
 `;
 
-export default function SingleProduct(props) {
+type Props = {
+  shoppingCart: {
+    id: number;
+    quantity: number;
+  }[];
+  setShoppingCart: Dispatch<
+    SetStateAction<
+      {
+        id: string;
+        quantity: string;
+      }[]
+    >
+  >;
+  product: {
+    color: string;
+    currency: string;
+    cut: string;
+    id: number;
+    imgBack: string;
+    imgFront: string;
+    price: string;
+    productDescription: string;
+    productName: string;
+    sizes: string;
+  };
+};
+
+export default function SingleProduct(props: Props) {
   return (
     // Pass props
     <Layout
@@ -245,12 +274,13 @@ export default function SingleProduct(props) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
   const productId = context.query.productId;
 
   const { getProductById } = await import('../../util/database');
 
   const product = await getProductById(productId);
+  console.log('---product----', product);
   return {
     props: {
       product: product,

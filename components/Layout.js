@@ -4,6 +4,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { css } from '@emotion/react';
 // Prevent fontawesome from adding its CSS since we did it manually above
 import { config } from '@fortawesome/fontawesome-svg-core';
+import { Dispatch, SetStateAction } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 

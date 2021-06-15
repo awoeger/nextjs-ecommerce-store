@@ -2,7 +2,7 @@
 import 'react-slideshow-image/dist/styles.css';
 import { css } from '@emotion/react';
 import Head from 'next/head';
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { Slide } from 'react-slideshow-image';
 import Layout from '../components/Layout';
 
@@ -49,15 +49,19 @@ const images = [
   '/intergalaktik.jpg',
 ];
 
-type Props = {
+export type Props = {
   shoppingCart: {
     id: number;
     quantity: number;
   };
-  setShoppingCart: {
-    id: number;
-    quantity: number;
-  };
+  setShoppingCart: Dispatch<
+    SetStateAction<
+      {
+        id: string;
+        quantity: string;
+      }[]
+    >
+  >;
 };
 
 export default function About(props: Props) {
