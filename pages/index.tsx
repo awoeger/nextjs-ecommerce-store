@@ -42,6 +42,38 @@ const homepageContainer = css`
     color: white;
     font-weight: bold;
   }
+
+  @media (min-width: 310px) {
+    font-size: 0.5em;
+  }
+
+  @media (min-width: 353px) {
+    font-size: 0.6em;
+  }
+
+  @media (min-width: 424px) {
+    font-size: 0.7em;
+  }
+
+  @media (min-width: 495px) {
+    font-size: 0.8em;
+  }
+
+  @media (min-width: 565px) {
+    font-size: 0.9em;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 0.7em;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1em;
+  }
+
+  @media (min-width: 2012px) {
+    font-size: 2em;
+  }
 `;
 
 const blueOverlay = css`

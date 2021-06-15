@@ -42,6 +42,42 @@ const thankyouContainer = css`
     color: white;
     font-weight: bold;
   }
+
+  @media (min-width: 310px) {
+    font-size: 0.35em;
+  }
+
+  @media (min-width: 356px) {
+    font-size: 0.5em;
+  }
+
+  @media (min-width: 384px) {
+    font-size: 0.4em;
+  }
+
+  @media (min-width: 452px) {
+    font-size: 0.5em;
+  }
+
+  @media (min-width: 495px) {
+    font-size: 0.6em;
+  }
+
+  @media (min-width: 565px) {
+    font-size: 0.7em;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 0.7em;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 0.9em;
+  }
+
+  @media (min-width: 2012px) {
+    font-size: 2em;
+  }
 `;
 
 const blueOverlay = css`
