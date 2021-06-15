@@ -91,12 +91,15 @@ const screenreaderSpans = css`
 const sumContainer = css`
   position: absolute;
   left: 50%;
+  background: rgba(234, 239, 253, 0.7);
+  border: 2px solid black;
+  padding-left: 50px;
+  padding-top: 90px;
 
   span {
-    font-size: 1.5em;
+    font-size: 1.3em;
     margin: 0 10px 50px 0;
     color: #182b4f;
-    font-weight: bold;
   }
 `;
 

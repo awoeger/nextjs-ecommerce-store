@@ -30,6 +30,10 @@ const checkoutContainerLeft = css`
   color: #182b4f;
   font-size: 1.1em;
   font-weight: bold;
+
+  input {
+    color: #182b4f;
+  }
 `;
 
 const checkoutContainerRight = css`
