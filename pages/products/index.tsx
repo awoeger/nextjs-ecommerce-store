@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Dispatch, SetStateAction } from 'react';
 import Layout from '../../components/Layout';
 
 const heading = css`
@@ -53,11 +54,15 @@ type Props = {
   shoppingCart: {
     id: number;
     quantity: number;
-  };
-  setShoppingCart: {
-    id: number;
-    quantity: number;
-  };
+  }[];
+  setShoppingCart: Dispatch<
+    SetStateAction<
+      {
+        id: string;
+        quantity: string;
+      }[]
+    >
+  >;
 };
 
 export default function Products(props: Props) {
