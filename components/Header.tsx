@@ -41,7 +41,14 @@ const logo = css`
   max-width: 200px;
 `;
 
-export default function Header(props) {
+type Props = {
+  shoppingCart: {
+    id: number;
+    quantity: number;
+  }[];
+};
+
+export default function Header(props: Props) {
   return (
     <div css={headerContainer}>
       <div css={headerLeftContainer}>
