@@ -71,7 +71,7 @@ const productInfoRight = css`
   button {
     background: white;
     color: #182b4f;
-    padding: 3px 8px;
+    padding: 5px 10px;
     font-size: 1.1em;
     border: 2px solid #182b4f;
   }
