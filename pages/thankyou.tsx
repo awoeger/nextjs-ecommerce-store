@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 const thankyouContainer = css`
-  background-image: url(/thankyouMessageOzzy.jpg);
+  background-image: url('/thankyouMessageOzzy.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
