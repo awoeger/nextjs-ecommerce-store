@@ -14,10 +14,7 @@ describe('Ability to add, substract and remove products from cart', () => {
       'have.text',
       'Total amount: 1',
     );
-    cy.get('[data-cy="add-quantity-button"]', {
-      withinSubject: null,
-      timeout: 6000,
-    }).click();
+    cy.get('[data-cy="add-quantity-button"]').click();
     cy.get('[data-cy="cart-counter-header"]').should('have.text', 2);
     cy.get('[data-cy="cart-counter-shoppingcart"]').should(
       'have.text',
