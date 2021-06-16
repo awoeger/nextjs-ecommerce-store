@@ -1,7 +1,4 @@
-import dotenvSafe from 'dotenv-safe';
 import cookies from 'js-cookie';
-
-dotenvSafe.config();
 
 export function getShoppingCartCookieValue() {
   const cookieValue = cookies.getJSON('quantity');
