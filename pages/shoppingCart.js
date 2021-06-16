@@ -49,7 +49,7 @@ const container = css`
   }
 
   img {
-    width: 30%;
+    width: 40%;
     margin-right: 20px;
   }
 
@@ -93,6 +93,7 @@ const sumContainer = css`
   left: 50%;
   background: rgba(234, 239, 253, 0.7);
   border: 2px solid black;
+  padding: 20px;
 
   /* span {
     font-size: 1.3em;
@@ -254,8 +255,7 @@ export default function ShoppingCart(props) {
             <div css={sumContainer}>
               <div>
                 <span data-cy="cart-counter-shoppingcart">
-                  {console.log('---shoppingCart---', props.shoppingCart)}
-                  Total amount of products: {getTotalAmount(props.shoppingCart)}
+                  Total amount: {getTotalAmount(props.shoppingCart)}
                 </span>
               </div>
               <div>

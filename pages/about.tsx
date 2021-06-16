@@ -73,6 +73,23 @@ export default function About(props: Props) {
       <Head>
         <title>About</title>
       </Head>
+      {/* <div>
+        <div>
+          <h2>History</h2>
+          <p>
+            Quidditch was founded 2005 in the USA and has grown into a popular
+            sport around the world. The International Quidditch Association
+            (IQA) counts more than 40 national governing bodies with hundreds of
+            teams and more than thousands active players worldwide. In Austria
+            the sport is organised by the national governing body Quidditch
+            Austria (QAT).
+          </p>
+        </div>
+        <div>
+          <Image src="" />
+        </div>
+      </div> */}
+
       <div css={aboutContainer}>
         <div css={aboutSubContainerLeft}>
           <div>
