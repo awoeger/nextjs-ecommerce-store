@@ -93,7 +93,7 @@ const sumContainer = css`
   left: 50%;
   background: rgba(234, 239, 253, 0.7);
   border: 2px solid black;
-  padding: 20px;
+  padding: 100px;
 
   /* span {
     font-size: 1.3em;
