@@ -33,6 +33,7 @@ const checkoutContainerLeft = css`
 
   input {
     color: #182b4f;
+    font-size: 1.3em;
   }
 `;
 

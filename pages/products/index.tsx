@@ -38,6 +38,7 @@ const productSubContainer = css`
 
   img {
     width: 90%;
+    margin-bottom: 10px;
   }
 
   h3 {
