@@ -71,7 +71,7 @@ export default function Header(props: Props) {
         <Link href="/products">
           <a>Shop</a>
         </Link>
-        <Link href="/shoppingcart">
+        <Link href="/cart">
           <a>
             <FontAwesomeIcon size="1x" icon={faShoppingCart} />
             <span data-cy="cart-counter-header" css={shoppingCartNumber}>

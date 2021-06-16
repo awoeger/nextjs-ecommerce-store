@@ -255,7 +255,7 @@ export default function SingleProduct(props: Props) {
                   </button>
                 </div>
               </div>
-              <Link href="/shoppingcart">
+              <Link href="/cart">
                 <a>
                   <button
                     css={proceedToCardButton}

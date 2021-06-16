@@ -119,7 +119,7 @@ const button = css`
   }
 `;
 
-export default function ShoppingCart(props) {
+export default function Cart(props) {
   const [finalShoppingCartArray, setFinalShoppingCartArray] = useState(
     props.finalShoppingCartArray,
   );
