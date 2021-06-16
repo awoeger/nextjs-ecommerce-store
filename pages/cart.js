@@ -20,6 +20,25 @@ const heading = css`
   margin-left: 50px;
 `;
 
+const tableHeading = css`
+  background: #182b4f;
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 50px;
+
+  div {
+    display: flex;
+    color: white;
+    font-weight: bold;
+    width: 40%;
+  }
+
+  p {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+`;
+
 const noItemsContainer = css`
   display: flex;
   color: #182b4f;
@@ -35,32 +54,26 @@ const mainContainer = css`
 `;
 
 const container = css`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.4fr 1.8fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 20px;
+  justify-items: stretch;
   align-items: center;
-  margin-right: 20px;
-  margin-bottom: 50px;
-  width: 50%;
-
-  > div {
-    display: flex;
-    align-items: center;
-    align-items: flex-start;
-    flex-direction: column;
-  }
+  margin-bottom: 30px;
 
   img {
-    width: 40%;
-    margin-right: 20px;
+    width: 80%;
+    margin-right: 8%;
   }
 
   h3 {
-    font-size: 1.2em;
-    margin: 0 20px 0 0;
+    margin-bottom: 0;
   }
 
   h4 {
-    font-size: 1.2em;
-    margin: 0 20px 0 0;
+    font-size: 1.3em;
+    margin: 0 10px 0 0;
   }
 
   p {
@@ -80,26 +93,43 @@ const container = css`
 `;
 
 const subContainer = css`
-  display: inline-flex;
+  width: 100%;
+`;
+
+const subContainerRight = css`
+  display: flex;
+  justify-content: center;
+  width: 100%;
   align-items: center;
+  font-size: 1.3em;
 `;
 
 const screenreaderSpans = css`
   display: none;
 `;
 
-const sumContainer = css`
-  position: absolute;
-  left: 50%;
-  background: rgba(234, 239, 253, 0.7);
-  border: 2px solid black;
-  padding: 100px;
+const subTotal = css`
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  font-size: 1.3em;
+`;
 
-  /* span {
-    font-size: 1.3em;
-    margin: 0 10px 50px 0;
+const totalContainer = css`
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  padding: 30px;
+  border-top: 2px solid #182b4f;
+
+  span {
+    font-size: 1.6em;
+    margin-left: 160px;
+    margin-right: 50px;
+    font-weight: bold;
     color: #182b4f;
-  } */
+  }
 `;
 
 const button = css`
@@ -107,11 +137,12 @@ const button = css`
   color: white;
   background: #182b4f;
   border: none;
-  font-size: 1em;
+  font-size: 1.5em;
   font-weight: bold;
   border-radius: 2px;
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+  margin-right: 60px;
+  float: right;
 
   :hover {
     background: #182b4f;
@@ -161,106 +192,119 @@ export default function Cart(props) {
       <Head>
         <title>Shopping Cart</title>
       </Head>
-
       <h2 css={heading}>Shopping cart</h2>
+      <div css={tableHeading}>
+        <div>
+          <p>Product</p>
+          <p>Description</p>
+        </div>
+        <div>
+          <p>Quantity</p>
+          <p>Subtotal</p>
+        </div>
+      </div>
       <div css={mainContainer}>
         {totalSum > 0 ? (
-          <>
-            <div>
-              {finalShoppingCartArray.map((item) => {
-                return (
-                  <div
-                    data-cy="products-in-cart-div"
-                    css={container}
-                    key={item.id}
-                  >
-                    <img src={item.imgFront} alt={item.productName} />
-                    <div>
-                      <div css={subContainer}>
-                        <h3>{item.productName}</h3>
-                        <h4>{item.price} €</h4>
-                      </div>
-                      <div css={subContainer}>
-                        <p>
-                          Amount:{' '}
-                          {
-                            props.shoppingCart.find((pro) => pro.id === item.id)
-                              ?.quantity
-                          }
-                        </p>
-                        <button
-                          data-cy="substract-quantity-button"
-                          onClick={() => {
-                            // [{id: 1, quantity: 2}]
-                            const subtractedValue = substractProductByProductId(
-                              item.id,
-                            );
-                            props.setShoppingCart(subtractedValue);
-                          }}
-                        >
-                          <FontAwesomeIcon
-                            size="xs"
-                            icon={faMinus}
-                            aria-hidden="true"
-                            title="Substract item"
-                          />
-                          <span css={screenreaderSpans}>Substract item</span>
-                        </button>
-                        <button
-                          data-cy="add-quantity-button"
-                          onClick={() => {
-                            console.log(
-                              'props.shoppingCart',
-                              props.shoppingCart,
-                            );
-                            // this updates the cookie state
-                            props.setShoppingCart(
-                              addProductByProductId(item.id),
-                            );
-                          }}
-                        >
-                          <FontAwesomeIcon
-                            size="xs"
-                            icon={faPlus}
-                            aria-hidden="true"
-                            title="Add item"
-                          />
-                          <span css={screenreaderSpans}>Add item</span>
-                        </button>
-                        <button
-                          data-cy="remove-quantity-button"
-                          onClick={() => {
-                            props.setShoppingCart(removeProductById(item.id));
-                            setFinalShoppingCartArray(
-                              finalShoppingCartArray.filter(
-                                (prod) => prod.id !== item.id,
-                              ),
-                            );
-                          }}
-                        >
-                          <FontAwesomeIcon
-                            size="sm"
-                            icon={faTrashAlt}
-                            aria-hidden="true"
-                            title="Delete item"
-                          />{' '}
-                          <span css={screenreaderSpans}>Delete item</span>
-                        </button>
-                      </div>
+          <div>
+            {finalShoppingCartArray.map((item) => {
+              return (
+                <div
+                  data-aos="fade-up"
+                  data-aos-duration="1500"
+                  data-cy="products-in-cart-div"
+                  css={container}
+                  key={item.id}
+                >
+                  <img src={item.imgFront} alt={item.productName} />
+                  <div css={subContainer}>
+                    <h3>{item.productName}</h3>
+                    <p>{item.price} €</p>
+                  </div>
+                  <div>
+                    <div css={subContainerRight}>
+                      <button
+                        data-cy="substract-quantity-button"
+                        onClick={() => {
+                          // [{id: 1, quantity: 2}]
+                          const subtractedValue = substractProductByProductId(
+                            item.id,
+                          );
+                          props.setShoppingCart(subtractedValue);
+                        }}
+                      >
+                        <FontAwesomeIcon
+                          size="xs"
+                          icon={faMinus}
+                          aria-hidden="true"
+                          title="Substract item"
+                        />
+                        <span css={screenreaderSpans}>Substract item</span>
+                      </button>
+                      <p>
+                        {
+                          props.shoppingCart.find((pro) => pro.id === item.id)
+                            ?.quantity
+                        }
+                      </p>
+                      <button
+                        data-cy="add-quantity-button"
+                        onClick={() => {
+                          console.log('props.shoppingCart', props.shoppingCart);
+                          // this updates the cookie state
+                          props.setShoppingCart(addProductByProductId(item.id));
+                        }}
+                      >
+                        <FontAwesomeIcon
+                          size="xs"
+                          icon={faPlus}
+                          aria-hidden="true"
+                          title="Add item"
+                        />
+                        <span css={screenreaderSpans}>Add item</span>
+                      </button>
+                      <button
+                        data-cy="remove-quantity-button"
+                        onClick={() => {
+                          props.setShoppingCart(removeProductById(item.id));
+                          setFinalShoppingCartArray(
+                            finalShoppingCartArray.filter(
+                              (prod) => prod.id !== item.id,
+                            ),
+                          );
+                        }}
+                      >
+                        <FontAwesomeIcon
+                          size="sm"
+                          icon={faTrashAlt}
+                          aria-hidden="true"
+                          title="Delete item"
+                        />{' '}
+                        <span css={screenreaderSpans}>Delete item</span>
+                      </button>
                     </div>
                   </div>
-                );
-              })}
-            </div>
-            <div css={sumContainer}>
+                  <div css={subTotal}>
+                    <h4>
+                      {finalShoppingCartArray.find((pro) => pro.id === item.id)
+                        ?.quantity *
+                        finalShoppingCartArray.find((pro) => pro.id === item.id)
+                          ?.price}{' '}
+                      €
+                    </h4>
+                  </div>
+                </div>
+              );
+            })}
+            <div css={totalContainer}>
               <div>
+                <span>Total:</span>
                 <span data-cy="cart-counter-shoppingcart">
-                  Total amount: {getTotalAmount(props.shoppingCart)}
+                  {getTotalAmount(props.shoppingCart)}
                 </span>
               </div>
               <div>
                 <span>
-                  Total sum: {totalSum} {' €'}
+                  {totalSum} {' €'}
                 </span>
               </div>
             </div>
@@ -273,7 +317,7 @@ export default function Cart(props) {
                 </a>
               </Link>
             </div>
-          </>
+          </div>
         ) : (
           <div data-cy="no-items-in-cart-div" css={noItemsContainer}>
             <div>
