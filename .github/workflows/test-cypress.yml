@@ -25,7 +25,7 @@ jobs:
           build: yarn migrate up
           start: yarn dev
         env:
-          # API_BASE_URL: http://localhost:3000/api
+          API_BASE_URL: http://localhost:3000/api
           PGHOST: localhost
           PGDATABASE: ${{ secrets.PGDATABASE }}
           PGUSERNAME: ${{ secrets.PGUSERNAME }}
