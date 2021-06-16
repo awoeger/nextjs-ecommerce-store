@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- Todo: Insert Screenshots -->
 
-## Getting Started
+# Vienna Vanguards E-Commerce Store
 
-First, run the development server:
+![Screenshot 1]()
+![Screenshot 2]()
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Deployed Version
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You can visit the deployed website under:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+DISCLAIMER: This project was created as part of the requirements for the Upleveled bootcamp in Vienna.
+No actual merchandise can be purchased on this website.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Functionalities
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+In this repository an e-commerce store with following features and functionalities was created.
 
-## Learn More
+- a product page, where all products are listed
+- a single product page, where you can find more details about the products
+- a shopping cart page and the possibility to change quantity of the products on it
+- a checkout page, which asks for shipping and payment information
+- a thank you page after checkout has been completed
+- the header shows the total amount of products next to the shopping cart item.
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js
+- React.js
+- Postgres
+- PSQL
+- Emotion
+- Bootstrap
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## SetUp Guide
 
-## Deploy on Vercel
+To work on this project by yourself, please follow the upcoming steps:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Clone repo to your local machine
+- Download and install PostgreSQL
+- Create a user and database for this project
+- Modify the info in the .env-example file
+- Rename the file to .env
+- Install dotenv-cli with <yarn global add dotenv-cli>
+- Run <yarn install> in your command line
+- Run the migrations for your local database with <yarn migrateup>
+- Start the server by running <yarn dev>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Deploy your own website to Heroku
+
+- Sign up for Heroku: signup.heroku.com
+- Create a new App
+- Choose a name and select the "Europe" Region
+- Click on the button in the middle called "Connect to GitHub"
+- Search for your repository in the search box at the bottom of the page and click on the "Connect" button Click on the button for "Enable Automatic Deploys"
+- Go back to the Overview tab and click on "Configure Add-On"
+- Search for "Postgres" and select "Heroku Postgres" from the results
+- Trigger a deploy pushing to your github repo and enjoy.
