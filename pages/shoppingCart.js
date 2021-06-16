@@ -94,11 +94,11 @@ const sumContainer = css`
   background: rgba(234, 239, 253, 0.7);
   border: 2px solid black;
 
-  span {
+  /* span {
     font-size: 1.3em;
     margin: 0 10px 50px 0;
     color: #182b4f;
-  }
+  } */
 `;
 
 const button = css`
@@ -263,15 +263,15 @@ export default function ShoppingCart(props) {
                   Total sum: {totalSum} {' €'}
                 </span>
               </div>
-              <div>
-                <Link href="/checkout">
-                  <a>
-                    <button data-cy="checkout-link" css={button}>
-                      Checkout
-                    </button>
-                  </a>
-                </Link>
-              </div>
+            </div>
+            <div>
+              <Link href="/checkout">
+                <a>
+                  <button data-cy="checkout-link" css={button}>
+                    Checkout
+                  </button>
+                </a>
+              </Link>
             </div>
           </>
         ) : (

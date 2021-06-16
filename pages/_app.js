@@ -1,15 +1,22 @@
 import '../css/main.css';
+import 'aos/dist/aos.css'; // You can also use  for styles
 import { css, Global } from '@emotion/react';
+import AOS from 'aos';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import { getShoppingCartCookieValue } from '../util/cookies';
-
 // import "../scss/style.scss";
+import { getShoppingCartCookieValue } from '../util/cookies';
 
 export const vanguardsBlue = '#182B4F';
 export const vanguardsOrange = '#F39200';
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    AOS.init({
+      offset: 50,
+    });
+  }, []);
+
   const [shoppingCart, setShoppingCart] = useState([]);
 
   // Updating the state variable after the page loads,
