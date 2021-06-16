@@ -4,11 +4,6 @@ import postgres from 'postgres';
 import setPostgresDefaultsOnHeroku from './setPostgresDefaultsOnHeroku';
 
 setPostgresDefaultsOnHeroku();
-
-// Read the PostgreSQL secret connection information
-// (host, database, username password) from the .env file
-dotenvSafe.config();
-
 function connectOneTimeToDatabase() {
   let sql;
   if (process.env.NODE_ENV === 'production') {
@@ -24,6 +19,10 @@ function connectOneTimeToDatabase() {
   }
   return sql;
 }
+
+// Read the PostgreSQL secret connection information
+// (host, database, username password) from the .env file
+dotenvSafe.config();
 
 // Connect to PostgreSQL
 const sql = connectOneTimeToDatabase();
