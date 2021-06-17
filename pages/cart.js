@@ -18,6 +18,18 @@ const heading = css`
   margin-top: 1.5em;
   margin-bottom: 1.5em;
   margin-left: 50px;
+
+  @media (min-width: 2560px) {
+    font-size: 3.5em;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 1.8em;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.6em;
+  }
 `;
 
 const tableHeading = css`
@@ -37,6 +49,19 @@ const tableHeading = css`
     margin-left: 20%;
     margin-right: 20%;
   }
+
+  @media (min-width: 2560px) {
+    font-size: 2em;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 0.8em;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.6em;
+    margin-right: 20px;
+  }
 `;
 
 const noItemsContainer = css`
@@ -45,6 +70,10 @@ const noItemsContainer = css`
   font-weight: bold;
   font-size: 1.2em;
   margin-bottom: 5em;
+
+  @media (min-width: 2560px) {
+    font-size: 3em;
+  }
 `;
 
 const mainContainer = css`
@@ -90,6 +119,18 @@ const container = css`
     font-size: 0.9em;
     border: 2px solid #182b4f;
   }
+
+  @media (min-width: 2560px) {
+    font-size: 1.7em;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 0.8em;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.6em;
+  }
 `;
 
 const subContainer = css`
@@ -130,6 +171,30 @@ const totalContainer = css`
     font-weight: bold;
     color: #182b4f;
   }
+
+  @media (min-width: 2560px) {
+    font-size: 1.7em;
+
+    span {
+      margin-left: 240px;
+      margin-right: 150px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 0.8em;
+  }
+
+  span {
+    margin-left: 130px;
+    margin-right: 15px;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+    font-size: 0.6em;
+    margin-right: 10px;
+  }
 `;
 
 const button = css`
@@ -147,6 +212,20 @@ const button = css`
   :hover {
     background: #182b4f;
     color: #f39200;
+  }
+
+  @media (min-width: 2560px) {
+    font-size: 3em;
+    margin-right: 70px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 1.3em;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+    margin-right: 20px;
   }
 `;
 
