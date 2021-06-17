@@ -29,6 +29,15 @@ const heading = css`
     font-size: 1.4em;
   }
 
+  @media (max-width: 426px) {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 321px) {
+    font-size: 0.9em;
+  }
+
   @media (min-width: 2560px) {
     font-size: 4em;
   }
@@ -37,6 +46,10 @@ const heading = css`
 const container = css`
   margin: 50px;
   text-align: center;
+
+  @media (max-width: 426px) {
+    margin: 0 0 30px 0;
+  }
 `;
 
 const productContainer = css`
@@ -51,6 +64,11 @@ const productContainer = css`
 
   @media (max-width: 768px) {
     gap: 30px 10px;
+  }
+
+  @media (max-width: 426px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
 
   @media (min-width: 2560px) {
@@ -105,6 +123,26 @@ const productSubContainer = css`
     }
   }
 
+  @media (max-width: 426px) {
+    h3,
+    h4 {
+      font-size: 1em;
+    }
+  }
+
+  @media (max-width: 376px) {
+    h3 {
+      font-size: 0.8em;
+    }
+  }
+
+  @media (max-width: 321px) {
+    h3,
+    h4 {
+      font-size: 0.6em;
+    }
+  }
+
   @media (min-width: 2560px) {
     h3,
     h4 {
@@ -116,6 +154,10 @@ const productSubContainer = css`
 const productInfo = css`
   display: flex;
   align-items: center;
+
+  @media (max-width: 426px) {
+    flex-direction: column;
+  }
 `;
 
 const productInfoLeft = css`
@@ -131,6 +173,10 @@ const productInfoLeft = css`
   @media (max-width: 768px) {
     width: 55%;
   }
+
+  @media (max-width: 426px) {
+    width: 100%;
+  }
 `;
 
 const productInfoRight = css`
@@ -144,21 +190,35 @@ const productInfoRight = css`
     padding: 5px 10px;
     font-size: 1.1em;
     border: 2px solid #182b4f;
+  }
 
-    @media (max-width: 1024px) {
-      font-size: 1.1em;
-      padding: 5px 5px;
-    }
+  @media (max-width: 1024px) {
+    font-size: 1.1em;
+    padding: 5px 5px;
+  }
 
-    @media (max-width: 768px) {
-      font-size: 0.7em;
-      padding: 5px 5px;
-    }
+  @media (max-width: 768px) {
+    font-size: 0.7em;
+    padding: 5px 5px;
+  }
 
-    @media (min-width: 2560px) {
-      font-size: 2.3em;
-      padding: 5px 20px;
-    }
+  @media (max-width: 426px) {
+    font-size: 0.6em;
+    padding: 5px 5px;
+    margin-right: 10px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 376px) {
+    font-size: 0.5em;
+    padding: 5px 5px;
+    /* margin-right: 10px; */
+  }
+
+  @media (min-width: 2560px) {
+    font-size: 2.3em;
+    padding: 5px 20px;
   }
 `;
 

@@ -30,6 +30,11 @@ const heading = css`
   @media (max-width: 768px) {
     font-size: 1.6em;
   }
+
+  @media (max-width: 426px) {
+    font-size: 1.4em;
+    margin-left: 0;
+  }
 `;
 
 const tableHeading = css`
@@ -226,6 +231,11 @@ const button = css`
   @media (max-width: 768px) {
     font-size: 1em;
     margin-right: 20px;
+  }
+
+  @media (max-width: 426px) {
+    font-size: 1.4em;
+    margin-right: 200px;
   }
 `;
 
