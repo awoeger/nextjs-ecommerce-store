@@ -10,19 +10,13 @@ describe('Ability to add, substract and remove products from cart', () => {
     cy.get('[data-cy="products-in-cart-div"]').should('be.visible');
     cy.get('[data-cy="substract-quantity-button"]').click();
     cy.get('[data-cy="cart-counter-header"]').should('have.text', 1);
-    cy.get('[data-cy="cart-counter-shoppingcart"]').should(
-      'have.text',
-      'Total amount: 1',
-    );
+    cy.get('[data-cy="cart-counter-shoppingcart"]').should('have.text', '1');
     cy.get('[data-cy="add-quantity-button"]', {
       withinSubject: null,
       timeout: 6000,
     }).click();
     cy.get('[data-cy="cart-counter-header"]').should('have.text', 2);
-    cy.get('[data-cy="cart-counter-shoppingcart"]').should(
-      'have.text',
-      'Total amount: 2',
-    );
+    cy.get('[data-cy="cart-counter-shoppingcart"]').should('have.text', '2');
     cy.get('[data-cy="remove-quantity-button"]').click();
     cy.get('[data-cy="no-items-in-cart-div"]').should('be.visible');
   });
