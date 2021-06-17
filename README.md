@@ -41,6 +41,8 @@ In this repository an e-commerce store with following features and functionaliti
 - PSQL
 - Emotion
 - Bootstrap
+- Typescript
+- Jest / Cypress
 
 ## SetUp Guide
 

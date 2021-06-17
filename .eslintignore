@@ -3,3 +3,6 @@ build
 
 # Next.js build folder
 .next
+
+cypress/plugins/index.js
+coverage/lcov-report/prettify.js

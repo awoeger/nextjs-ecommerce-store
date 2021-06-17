@@ -31,6 +31,17 @@ const footerLeftContainer = css`
     font-size: 0.7em;
     margin-left: 2em;
   }
+
+  @media (min-width: 2560px) {
+    margin-top: 20px;
+    font-size: 1.8em;
+    padding: 10px 0px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    font-size: 0.7em;
+  }
 `;
 
 const footerRightContainer = css`
@@ -46,6 +57,14 @@ const footerRightContainer = css`
   a:hover {
     color: #f39200;
     font-weight: bold;
+  }
+
+  @media (min-width: 7680px) {
+    font-size: 0.7em;
+  }
+
+  a {
+    font-size: 1em;
   }
 `;
 
