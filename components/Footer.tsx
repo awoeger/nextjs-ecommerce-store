@@ -15,8 +15,10 @@ const footerContainer = css`
   align-items: center;
   padding: 10px 0px;
   width: 100%;
-  /* position: absolute;
-  bottom: 0; */
+
+  @media (min-width: 2560px) {
+    padding: 10px 20px;
+  }
 `;
 
 const footerLeftContainer = css`
@@ -32,15 +34,14 @@ const footerLeftContainer = css`
     margin-left: 2em;
   }
 
-  @media (min-width: 2560px) {
-    margin-top: 20px;
-    font-size: 1.8em;
-    padding: 10px 0px;
-  }
-
   @media (max-width: 768px) {
     margin-top: 20px;
     font-size: 0.7em;
+  }
+
+  @media (min-width: 2560px) {
+    margin-top: 20px;
+    font-size: 1.8em;
   }
 `;
 
@@ -59,12 +60,19 @@ const footerRightContainer = css`
     font-weight: bold;
   }
 
-  @media (min-width: 7680px) {
-    font-size: 0.7em;
+  @media (max-width: 768px) {
+    /* font-size: 0.7em; */
   }
 
   a {
-    font-size: 1em;
+    font-size: 1.5em;
+  }
+
+  @media (min-width: 2560px) {
+    font-size: 2.5em;
+  }
+  a {
+    margin: 0 20px;
   }
 `;
 

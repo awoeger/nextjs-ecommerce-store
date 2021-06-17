@@ -328,7 +328,6 @@ export default function Cart(props) {
                       <button
                         data-cy="add-quantity-button"
                         onClick={() => {
-                          console.log('props.shoppingCart', props.shoppingCart);
                           // this updates the cookie state
                           props.setShoppingCart(addProductByProductId(item.id));
                         }}
@@ -416,11 +415,9 @@ export async function getServerSideProps(context) {
 
   const rawCookie = context.req.cookies.quantity;
   const cookieArray = rawCookie ? JSON.parse(rawCookie) : [];
-  console.log('cookieArray', cookieArray);
 
   const finalShoppingCartArray = cookieArray.map((p) => {
     const draftShoppingCartObject = products.find((prod) => prod.id === p.id);
-    console.log('draftShoppingCartObject', draftShoppingCartObject);
 
     return {
       id: draftShoppingCartObject.id,
@@ -430,8 +427,6 @@ export async function getServerSideProps(context) {
       quantity: p.quantity,
     };
   });
-
-  console.log('finalShoppingCartArray', finalShoppingCartArray);
 
   return {
     props: {

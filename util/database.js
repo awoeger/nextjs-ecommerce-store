@@ -42,6 +42,5 @@ export async function getProductById(id) {
   WHERE
   id = ${Number(id)}
   `;
-  console.log(products);
   return products.map((product) => camelcaseKeys(product))[0];
 }

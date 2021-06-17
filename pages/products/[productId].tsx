@@ -384,7 +384,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { getProductById } = await import('../../util/database');
 
   const product = await getProductById(productId);
-  console.log('---product----', product);
+
   return {
     props: {
       product: product,

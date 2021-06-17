@@ -208,7 +208,6 @@ export default function Products(props: Props) {
       </div>
       <div css={container}>
         <div css={productContainer}>
-          {console.log('---productList', props.productList)}
           {props.productList.map((product) => {
             return (
               <div
