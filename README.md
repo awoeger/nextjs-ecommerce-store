@@ -6,7 +6,7 @@
 
 ![Screenshot 1](./public/screenshot1.PNG)
 
-## Shopping Cart
+## Shopping Cart Page
 
 ![Screenshot 2](./public/screenshot2.PNG)
 
