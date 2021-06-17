@@ -3,8 +3,8 @@
 # Vienna Vanguards E-Commerce Store
 
 ![Screenshot 1](./public/screenshot1.PNG)
-![Screenshot 2](./screenshot2.PNG)
-![Screenshot 3](./screenshot3.PNG)
+![Screenshot 2](./public/screenshot2.PNG)
+![Screenshot 3](./public/screenshot3.PNG)
 
 ## Deployed Version
 
