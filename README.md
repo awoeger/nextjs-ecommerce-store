@@ -17,10 +17,13 @@
 ## Deployed Version
 
 You can visit the deployed website under:
-[Vienna Vanguards Online Store](https://vv-online-store.herokuapp.com/)
+[Vienna Vanguards Online Store](https://vv-online-store.herokuapp.com/).
 
-DISCLAIMER: This project was created as part of the requirements for the Upleveled bootcamp in Vienna.
+DISCLAIMER:
+This project was created as part of the requirements for the Upleveled bootcamp in Vienna.
 No actual merchandise can be purchased on this website.
+
+So far, no mobile version of the website was designed.
 
 ## Functionalities
 
