@@ -19,6 +19,8 @@ import {
   substractProductByProductId,
 } from '../../util/cookies';
 
+// Todo: biggest screen
+
 const container = css`
   margin: 100px 50px 60px 50px;
 `;
@@ -33,6 +35,26 @@ const imageContainer = css`
 
   img {
     width: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    width: 60%;
+  }
+
+  @media (max-width: 768px) {
+    width: 65%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 2560px) {
+    width: 60%;
+
+    img {
+      width: 100%;
+    }
   }
 `;
 const descriptionContainer = css`
@@ -62,6 +84,55 @@ const descriptionContainer = css`
   span {
     font-weight: bold;
   }
+
+  @media (max-width: 1024px) {
+    width: 60%;
+
+    div {
+      width: 100%;
+    }
+
+    h3,
+    h2 {
+      font-size: 1.4em;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 100px;
+
+    div {
+      width: 100%;
+    }
+
+    h3,
+    h2 {
+      font-size: 1em;
+    }
+
+    p {
+      font-size: 1em;
+    }
+  }
+
+  @media (min-width: 2560px) {
+    div {
+      width: 100%;
+    }
+
+    h3,
+    h2 {
+      font-size: 3em;
+    }
+
+    p {
+      font-size: 2.7em;
+    }
+  }
 `;
 
 const eachSlide = css`
@@ -72,6 +143,14 @@ const eachSlide = css`
     background-size: cover;
     height: 520px;
   }
+
+  @media (max-width: 768px) {
+    height: 600px;
+  }
+
+  @media (min-width: 2560px) {
+    height: 1200px;
+  }
 `;
 
 const addToCardButton = css`
@@ -81,6 +160,14 @@ const addToCardButton = css`
   font-size: 1em;
   padding: 0.5em 1.2em;
   margin-top: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 1.1em;
+  }
+
+  @media (min-width: 2560px) {
+    font-size: 2em;
+  }
 `;
 
 const proceedToCardButton = css`
@@ -92,15 +179,32 @@ const proceedToCardButton = css`
   border-radius: 2px;
   width: 100%;
   margin: 1.3em 0;
+  position: absolute;
+  left: 75%;
+  top: 85%;
+  max-width: 200px;
 
   :hover {
     color: #f39200;
   }
 
-  position: absolute;
-  left: 75%;
-  top: 85%;
-  max-width: 200px;
+  @media (max-width: 1024px) {
+    left: 45%;
+    top: 87%;
+
+    font-size: 1em;
+  }
+
+  @media (max-width: 768px) {
+    left: 30%;
+    top: 115%;
+
+    font-size: 1em;
+  }
+
+  @media (min-width: 2560px) {
+    font-size: 2em;
+  }
 `;
 
 const backButton = css`

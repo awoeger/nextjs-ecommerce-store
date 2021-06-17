@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { Dispatch, SetStateAction } from 'react';
 import Layout from '../../components/Layout';
 
+// Todo: Media queries Phone
+
 const heading = css`
   text-align: center;
   font-size: 2.5em;
@@ -19,12 +21,12 @@ const heading = css`
     margin-top: 0;
   }
 
-  @media (max-width: 768px) {
-    font-size: 1.4em;
-  }
-
   @media (max-width: 1024px) {
     font-size: 1.8em;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.4em;
   }
 
   @media (min-width: 2560px) {
@@ -43,11 +45,11 @@ const productContainer = css`
   grid-template-rows: 1fr 1fr 1fr;
   gap: 30px 0;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     gap: 30px 10px;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     gap: 30px 10px;
   }
 
@@ -75,20 +77,6 @@ const productSubContainer = css`
     font-size: 1.2em;
   }
 
-  @media (max-width: 768px) {
-    img {
-      width: 95%;
-    }
-
-    h3 {
-      font-size: 0.5em;
-    }
-
-    h4 {
-      font-size: 0.8em;
-    }
-  }
-
   @media (max-width: 1024px) {
     img {
       width: 95%;
@@ -100,6 +88,20 @@ const productSubContainer = css`
 
     h4 {
       font-size: 1em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    img {
+      width: 95%;
+    }
+
+    h3 {
+      font-size: 0.6em;
+    }
+
+    h4 {
+      font-size: 0.8em;
     }
   }
 
@@ -122,11 +124,11 @@ const productInfoLeft = css`
   flex-direction: column;
   align-items: flex-start;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 55%;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     width: 55%;
   }
 `;
@@ -143,13 +145,13 @@ const productInfoRight = css`
     font-size: 1.1em;
     border: 2px solid #182b4f;
 
-    @media (max-width: 768px) {
-      font-size: 0.7em;
+    @media (max-width: 1024px) {
+      font-size: 1.1em;
       padding: 5px 5px;
     }
 
-    @media (max-width: 1024px) {
-      font-size: 1.1em;
+    @media (max-width: 768px) {
+      font-size: 0.7em;
       padding: 5px 5px;
     }
 
