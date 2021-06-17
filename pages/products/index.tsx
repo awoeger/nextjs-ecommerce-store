@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { Dispatch, SetStateAction } from 'react';
 import Layout from '../../components/Layout';
 
-// Todo: Media queries Phone
 
 const heading = css`
   text-align: center;

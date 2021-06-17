@@ -19,7 +19,6 @@ import {
   substractProductByProductId,
 } from '../../util/cookies';
 
-// Todo: biggest screen
 
 const container = css`
   margin: 100px 50px 60px 50px;
