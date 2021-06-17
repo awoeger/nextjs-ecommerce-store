@@ -2,8 +2,16 @@
 
 # Vienna Vanguards E-Commerce Store
 
+## Product Page
+
 ![Screenshot 1](./public/screenshot1.PNG)
+
+## Shopping Cart
+
 ![Screenshot 2](./public/screenshot2.PNG)
+
+## Checkout Page
+
 ![Screenshot 3](./public/screenshot3.PNG)
 
 ## Deployed Version
