@@ -2,12 +2,14 @@
 
 # Vienna Vanguards E-Commerce Store
 
-![Screenshot 1]()
-![Screenshot 2]()
+![Screenshot 1](/screenshot1.PNG)
+![Screenshot 2](/screenshot2.PNG)
+![Screenshot 3](/screenshot3.PNG)
 
 ## Deployed Version
 
 You can visit the deployed website under:
+[Vienna Vanguards Online Store](https://vv-online-store.herokuapp.com/)
 
 DISCLAIMER: This project was created as part of the requirements for the Upleveled bootcamp in Vienna.
 No actual merchandise can be purchased on this website.
