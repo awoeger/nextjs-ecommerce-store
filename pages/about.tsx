@@ -11,6 +11,10 @@ const aboutContainer = css`
   align-items: center;
   margin-top: 50px;
   margin-bottom: 20px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
 const aboutSubContainerLeft = css`
@@ -23,13 +27,29 @@ const aboutSubContainerLeft = css`
   h2 {
     font-size: 1.5em;
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   p {
     font-weight: 400;
     color: #182b4f;
     text-align: justify;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: 2560px) {
+    h2 {
+      font-size: 3em;
+    }
+    p {
+      font-size: 1.5em;
+    }
   }
 `;
 
@@ -38,6 +58,11 @@ const aboutSubContainerRight = css`
 
   img {
     max-width: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    width: 90%;
+    margin-top: 20px;
   }
 `;
 

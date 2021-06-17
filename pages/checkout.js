@@ -23,6 +23,18 @@ const mainContainer = css`
     font-size: 1.6em;
     margin: 40px 0;
   }
+
+  @media (min-width: 2560px) {
+    font-size: 2em;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 0.7em;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.4em;
+  }
 `;
 
 const checkoutContainerLeft = css`

@@ -30,6 +30,12 @@ const headerRightContainer = css`
   a:hover {
     color: #f39200;
   }
+
+  @media (min-width: 2560px) {
+    font-size: 1.8em;
+    padding-right: 50px;
+    padding: 20px 0px;
+  }
 `;
 
 const shoppingCartNumber = css`
