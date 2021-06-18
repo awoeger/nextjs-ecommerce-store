@@ -41,6 +41,7 @@ In this repository an e-commerce store with following features and functionaliti
 - Next.js
 - React.js
 - Postgres
+  - [Visual schema of database](https://drawsql.app/upleveled/diagrams/upleveled-final-project#)
 - PSQL
 - Emotion
 - Bootstrap
