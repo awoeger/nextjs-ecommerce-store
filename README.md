@@ -41,7 +41,6 @@ In this repository an e-commerce store with following features and functionaliti
 - Next.js
 - React.js
 - Postgres
-- PSQL
 - Emotion
 - Bootstrap
 - Typescript
